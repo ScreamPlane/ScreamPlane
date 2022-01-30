@@ -15,6 +15,7 @@ var smoke_container = document.querySelector('.top-section .smokes');
 var hills = document.querySelector('.hills');
 var night_plane_light = document.querySelector('.top-section .night-plane-light');
 var current_score = document.querySelector('.scores .current-score');
+var high_score = document.querySelector('.scores .high-score');
 var btn_play = document.querySelector('.btn-play');
 var btn_allow_mic = document.querySelector('.btn-grant');
 var btn_record = document.querySelector('.btn-start-recording');

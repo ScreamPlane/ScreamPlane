@@ -927,3 +927,12 @@ btn_allow_mic.onclick = function() {
         // console.log("u got an error:" + err);
     });
 };
+
+
+window.onload = function() {
+    let hs = localStorage.getItem("high_score");
+
+    if (hs) {
+        high_score.innerHTML = "H : " + hs;
+    }
+};
