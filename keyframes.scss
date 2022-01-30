@@ -1,4 +1,4 @@
-.plane > .preloader::after{
+.top-section > .preloader::after{
     position:absolute; width:0; height:0; overflow:hidden; z-index:-1; // hide images
     content:url("assets/images/plane3_frames/frame_0.png")
             url("assets/images/plane3_frames/frame_1.png")
