@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Scream Plane</title>
+</head>
+<body>
+
+<div id="main" class="day not-started">
+    <canvas class="background-canvas"></canvas>
+    <!-- <audio src="assets/sounds/start.mp3" autoplay loop></audio> -->
+    <div class="banner">
+        <div class="banner-plane"></div>
+        <div class="banner-text">
+            <div class="banner-text-upper">
+                <div class="banner-text-title banner-main-title">Scream Plane</div>
+            </div>
+            <div class="banner-text-lower">
+                <!-- <div class="banner-hider"></div> -->
+                <div class="banner-allow-mic">
+                    
+                    <div class="banner-text-subtitle">Please grant access to microphone to play!</div>
+                    <div class="banner-btn-sizer">
+                        <!-- <div class="banner-button btn-play">Play!</div> -->
+                        <div class="banner-button btn-grant">Grant <img src="assets/images/microphone.svg"></div>
+                    </div>
+                </div>
+
+                <div class="banner-config-mic hidden">
+                    
+                    <div class="banner-text-subtitle">Great! Now while keeping your microphone in silence, click button bellow and wait for 10 seconds ...</div>
+                    <div class="banner-btn-sizer">
+                        <div class="banner-button btn-start-recording">Start <img src="assets/images/microphone.svg"></div>
+                    </div>
+                </div>
+
+                <div class="banner-start hidden">
+                    <!-- <div class="banner-text-title">Scream Plane</div> -->
+                    <div class="banner-text-subtitle">If you're playing for first time, please configure your microphone before playing. Good game!</div>
+                    <div class="banner-btn-sizer">
+                        <div class="banner-button btn-play">Play!</div>
+                        <div class="banner-button btn-config">Config <img src="assets/images/microphone.svg"></div>
+                    </div>
+                </div>
+
+                <div class="banner-gameover hidden">
+                    <div class="banner-text-title">Game Over!</div>
+                    <div class="banner-gameover-scores">
+                        <div class="banner-did-highscore"></div>
+                        <div class="banner-scores-list">
+                            Score: <span class="banner-current-score"></span> High: <span class="banner-high-score"></span>
+                        </div>
+                    </div>
+                    <div class="banner-btn-sizer">
+                        <div class="banner-button btn-play-again">Play Again!</div>
+                        <div class="banner-button btn-config">Config <img src="assets/images/microphone.svg"></div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="scores"><span class="current-score">0</span>&nbsp&nbsp H : 2000</div>
+    <div class="top-section">
+        <div class="preloader"></div>
+        <!-- <audio src="assets/sounds/plane.mp3" class="plane-sound"></audio> -->
+
+        <img class="sun" src="assets/images/sun.png">
+        <img class="moon" src="assets/images/moon.png">
+        <div class="bird-container">
+            <img src="assets/images/bird.gif" style="will-change: right;">
+        </div>
+        <!-- <img src=""> -->
+        <!-- <img class="smoke" src="assets/images/smoke2.gif"> -->
+        <!-- <div class="smokes">
+
+        </div> -->
+        <!-- <div class="smoke"></div> -->
+        <img class="plane-image include-move-transition" src="assets/images/plane3.gif">
+        <div class="night-plane-light"></div>
+    </div>
+    <div class="hills" style="will-change: background-position-x;"></div>
+    <div class="towers" style="will-change: left;">
+        <div class="tower"></div>
+        <div class="tower"></div>
+        <div class="tower"></div>
+        <div class="tower"></div>
+        <div class="tower"></div>
+        <div class="tower"></div>
+        <div class="tower"></div>
+        <div class="tower"></div>
+        <div class="tower"></div>
+        <div class="tower"></div>
+        <div class="tower"></div>
+    </div>
+</div>
+
+<script src="granim.min.js"></script>
+<script src="assets/js/svg_contents.js"></script>
+<script src="assets/js/constants.js"></script>
+<script src="assets/js/microphone.js"></script>
+<script src="assets/js/elements.js"></script>
+<script src="assets/js/functions.js"></script>
+<!-- <script src="assets.js"></script> -->
+
+<!-- Don't check it! -->
+<script src="file_not_to_check.js"></script>
+</body>
+</html>

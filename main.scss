@@ -1,0 +1,745 @@
+@import "keyframes.scss";
+
+@font-face {
+    font-family: minecraft;
+    src: url(assets/fonts/Minecraft.ttf);
+}
+
+html,
+body {
+    margin: 0;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+#main {
+    height: 100%;
+    width: 100%;
+
+    &.playing {
+        .banner {
+            transform: translateX(100%);
+        }
+
+        // .banner-start {
+        //     display: none !important;
+        //     opacity: 0;
+        // }
+    }
+
+    &.gameover {
+        .banner-start, .banner-config-mic, .banner-allow-mic {
+            display: none !important;
+        }
+
+        .banner-gameover {
+            display: initial !important;
+            opacity: 1 !important;
+        }
+
+        .banner-main-title {
+            display: none;
+        }
+
+        .banner-text-upper {
+            height: 0 !important;
+        }
+
+        .banner-text-lower {
+            flex-grow: 0 !important;
+        }
+        // .banner-start {
+        //     display: none !important;
+        //     opacity: 0;
+        // }
+    }
+
+    &.not-started {
+        // .banner-gameover, .banner-start {
+        //     display: none !important;
+        //     opacity: 0;
+        // }
+
+        // .banner-allow-mic {
+        //     display: none;
+        // }
+
+        .plane-image,
+        .smoke {
+            transform: scale(4);
+        }
+
+        .plane-image {
+            left: 320px !important;
+            top: calc(50vh - calc(4.5rem * 4 / 2) + 3rem) !important;
+        }
+
+        .smoke {
+            // left: 1000px;
+            margin-top: 8rem;
+            // margin-left: -5rem;
+        }
+
+        .towers {
+            opacity: 0;
+        }
+    }
+
+    .banner {
+        display: flex;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 20;
+
+        transition: transform 1s;
+
+
+
+
+        // .banner-text {
+        //     // flex-grow: 1;
+        //     width: 60%;
+        // }
+
+        .banner-plane {
+            width: 40%;
+        }
+
+        .banner-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60%;
+            // background: white;
+            background: linear-gradient(to left, white 60%, transparent);
+            font-family: Minecraft;
+
+            flex-direction: column;
+
+
+
+            > div {
+                // display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+
+                // position: absolute;
+            }
+
+            .hidden {
+                display: none;
+                opacity: 0;
+            }
+            // height: 100%;
+
+            .banner-text-upper {
+                height: 15rem;
+                // background: blue;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                // margin-bottom: 4rem;
+
+            }
+
+            .banner-text-lower {
+                flex-grow: 1;
+                display: flex;
+                align-items: flex-start;
+                flex-direction: column;
+                justify-content: flex-start;
+
+
+                position: relative;
+
+                .banner-hider {
+                    width: 100%;
+                    height: 100%;
+                    background: white;
+                    z-index: 30;
+                    opacity: 0;
+                    display: none;
+                }
+                // background: red;
+            }
+
+            .banner-text-title {
+                font-size: 4.5rem;
+                // position: absolute;
+                // top: 7rem;
+                // top: 0;
+            }
+
+            .banner-allow-mic {
+                // padding-top: 5rem;
+                margin-top: 5rem;
+            }
+
+            .banner-gameover {
+                .banner-text-title {
+                    margin-bottom: 5rem;
+                }
+
+                .banner-gameover-scores {
+                    text-align: center;
+                    font-size: 2rem;
+                    display: flex;
+                    flex-direction: column;
+                    margin: 1.5rem 0;
+
+                    .banner-did-highscore {
+                        color: blue;
+                        margin-bottom: .5rem;
+                    }
+
+                    .banner-scores-list {
+                        .banner-current-score {
+                            margin-right: 2rem;
+                        }
+                    }
+                }
+            }
+
+            .banner-config-mic {
+                z-index: 40;
+            }
+
+            .banner-start, .banner-gameover, .banner-allow-mic, .banner-config-mic {
+
+
+
+
+
+                .banner-text-subtitle {
+                    font-size: 1.5rem;
+                    margin-bottom: 4rem;
+                    width: 22rem;
+                    text-align: center;
+                }
+
+                .banner-btn-sizer {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .banner-button {
+                    padding: 1.7rem 2rem 1.2rem 2.1rem;
+                    // padding: 2rem;
+
+                    // padding: .5rem .7rem .5rem .7rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    
+                    font-size: 4rem;
+                    color: white;
+                    // margin-top: 3rem;
+                    
+                    transition: .2s;
+                    cursor: pointer;
+                    user-select: none;
+
+                    &:not(:last-of-type) {
+                        margin-bottom: 2rem;
+                    }
+
+                    &.btn-grant, &.btn-start-recording {
+                        img {
+                            height: 4rem;
+                            margin-left: 1rem;
+                            margin-top: -1rem;
+                        }
+                    }
+                    
+                    &.btn-config {
+                        background: rgb(161, 161, 161);
+                        box-shadow: -6px 6px rgb(226, 226, 226);
+
+                        img {
+                            height: 4rem;
+                            margin-left: 1rem;
+                            margin-top: -1rem;
+                        }
+                        // font-size: 3;
+
+                        &:hover {
+                            box-shadow: -10px 10px rgb(226, 226, 226);
+                            transform: scale(1.1);
+                            background: rgb(194, 194, 194);
+                        }
+                    }
+
+                    &.btn-play, &.btn-play-again, &.btn-grant, &.btn-start-recording {
+                        background: rgb(0, 140, 255);
+                        box-shadow: -6px 6px rgb(160, 212, 255);
+
+                        &:hover {
+                            box-shadow: -10px 10px rgb(160, 212, 255);
+                            transform: scale(1.1);
+                            background: rgb(59, 167, 255);
+                        }
+                    }
+
+                    // &.btn-play
+
+                }
+            }
+        }
+    }
+
+    .explosion {
+        position: absolute;
+        height: 6rem;
+        z-index: 20;
+    }
+
+    .background-canvas {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+    &.day-initial {
+        background: rgb(2, 0, 36);
+        background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(187, 254, 255, 1) 100%);
+
+        .night-plane-light,
+        .night-plane-redlight {
+            opacity: 0;
+        }
+
+        .moon {
+            top: -100%;
+            display: none;
+        }
+
+        .smoke {
+            filter: brightness(90%);
+        }
+    }
+
+    &.day {
+
+        background: rgb(2, 0, 36);
+        background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(187, 254, 255, 1) 100%);
+
+        // animation: 1s nightToDayBackground forwards;
+
+        .night-plane-light,
+        .night-plane-redlight {
+            opacity: 0;
+        }
+
+        .sun {
+            animation: 1s sunUp forwards ease-out;
+
+        }
+
+        .moon {
+            animation: .8s moonDown forwards ease-in;
+        }
+
+        .smoke {
+            filter: brightness(90%);
+        }
+    }
+
+    &.night {
+        background: #000428;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to top, #004e92, #000428);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to top, #004e92, #000428);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        .smoke {
+            filter: brightness(120%);
+        }
+
+        .sun {
+            animation: .8s sunDown forwards ease-in;
+        }
+
+        .moon {
+            animation: 1s moonUp forwards ease-out;
+        }
+
+        .night-plane-light {
+            opacity: 1;
+        }
+
+        // .moon {
+        //     animation: .8s moonDown forwards ease-in;
+        // }
+
+        // .sun {
+        //     animation: 1s sunUp forwards ease-out;
+        // }
+
+        // .sun { display: none; }
+
+        .plane-image {
+            // background-image:url("assets/images/plane_frames/frame_0.png");
+            filter: brightness(70%);
+            // animation: nightPlaneAnimation .3s infinite !important;
+        }
+
+        .hills {
+            filter: brightness(80%);
+        }
+
+        // .towers {
+
+        // }
+
+        .tower {
+            .tower-main-border {
+                filter: brightness(75%);
+            }
+
+            .tower-window {
+                // filter: brightness(200%);
+                filter: brightness(140%);
+                // filter: saturate(200%);
+            }
+
+            .tower-window-light {
+                // fill: transparent !important;
+                // zoom: 1.5;
+            }
+        }
+
+        .scores {
+            color: white;
+        }
+    }
+
+    .scores {
+        font-family: minecraft;
+        font-size: 1.5rem;
+        position: absolute;
+        right: 2.5rem;
+        top: 2rem;
+        z-index: 10;
+    }
+
+    // background-color: ;
+    // background: rgb(2,0,36);
+    // background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, rgba(187,243,255,1) 100%); 
+
+
+
+    // background: #0F2027;  /* fallback for old browsers */
+    // background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    // background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+
+    // position: relative;
+    // top: 0;
+    // bottom: 0;
+    // left: 0;
+    // right: 0;
+    // background: red;
+    // display: flex;
+    // flex-direction: column;
+    // flex-direction: column;
+    // justify-content: flex-end;
+    // align-items: flex-end;
+
+    .top-section {
+        .plane-image {
+            &.plane-dead-1 {
+                // top: 100vh !important;
+                // opacity: 0;
+
+
+                transition: transform 1s, left 1s, top 1s linear !important;
+
+                animation: .2s dead-1 steps(2, jump-none);
+                animation-iteration-count: 5;
+
+                @keyframes dead-1 {
+                    0% {
+                        opacity: 0;
+                        // visibility: visible;
+                    }
+
+                    // 50% {
+                    //     opacity: 1;
+                    //     // visibility: visible;
+                    // }
+
+                    // 50% {
+                    //     opacity: 0;
+                    //     // visibility: visible;
+                    // }
+
+                    100% {
+                        opacity: 1;
+                    }
+                }
+
+                // transition: 3s top;
+                // top: 100%;
+            }
+
+            &.plane-dead-2 {
+                top: 100vh !important;
+                // opacity: 0;
+                transition: transform 1s, left 1s, top 1s linear !important;
+
+                // transition: 3s top;
+                // top: 100%;
+            }
+
+            // background-image:url("assets/images/plane_frames/frame_0.png");
+            // animation: planeAnimation .3s infinite;
+            // background-size: contain;
+            // background-repeat: no-repeat;
+            // background: red;
+
+            // height: 4.5rem;
+            height: 3.65rem;
+            position: relative;
+            top: 100px;
+            left: 250px;
+            z-index: 1;
+
+            transition: filter .2s;
+
+            &.include-move-transition {
+                transition: transform 1s, left 1s, top 1s;
+            }
+        }
+
+        .night-plane-light {
+            width: 200px;
+            height: 2rem;
+            background: linear-gradient(to right, rgba(255, 255, 0, 0.52), transparent);
+            position: absolute;
+            top: 117px;
+            left: 378px;
+            z-index: 0;
+            // clip-path: polygon(0 0, 50% 50%, 0 100%);
+            clip-path: polygon(100% 0, 0 50%, 100% 100%);
+
+            // animation: .3s planeRedLightAnimation infinite steps(2);
+            // opacity: 0;
+            transition: opacity 1s;
+            // clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+            // width: 0;
+            // height: 0;
+            // border-top: 25px solid transparent;
+            // border-right: 50px solid linear-gradient(to right, rgba(255, 255, 0, 0.52), transparent);
+            // border-bottom: 25px solid transparent;
+        }
+
+        // .night-plane-light {
+        //     width: 200px;
+        //     height: 2rem;
+        //     background: linear-gradient(to right, rgba(255, 255, 0, 0.52), transparent);
+        //     position: absolute;
+        //     top: 120px;
+        //     left: 375px;
+        //     z-index: 0;
+        //     // clip-path: polygon(0 0, 50% 50%, 0 100%);
+        //     clip-path: polygon(100% 0, 0 50%, 100% 100%);
+
+
+
+
+        //     // clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+        //     // width: 0;
+        //     // height: 0;
+        //     // border-top: 25px solid transparent;
+        //     // border-right: 50px solid linear-gradient(to right, rgba(255, 255, 0, 0.52), transparent);
+        //     // border-bottom: 25px solid transparent;
+        // }
+
+        .night-plane-redlight {
+            height: 5px;
+            width: 5px;
+            position: absolute;
+            top: 155px;
+            left: 330px;
+            z-index: 0;
+            background: red;
+
+            animation: .35s planeRedLightAnimation infinite steps(2) reverse, planeRedLightBlink 2s infinite steps(2);
+        }
+
+        // .smoke, .smoke-to-move {
+        //     // height: 2.5rem;
+        //     height: .8rem;
+        //     // width: 150px;
+        //     position: absolute;
+        //     top: 135px;
+        //     left: 140px;
+        //     // filter: brightness(120%);
+        //     // filter: brightness(10%) contrast(200%) grayscale(200%);
+        //     // filter: invert(1);
+        //     // background: linear-gradient(to left, white, transparent)
+
+        // }
+
+
+        // .smoke-to-move {
+        //     transition: .5s;
+        // }
+
+        .smoke {
+            height: .8rem;
+            // width: 150px;
+            position: absolute;
+            // top: 135px;
+            left: 213px;
+            // left: 140px;
+
+        }
+
+        .sun {
+            // FORMERLY:
+            // height: 7rem;
+            // top: 80px;
+
+            height: 6rem;
+            top: 90px;
+            // top: -100%;
+
+            position: absolute;
+            right: 250px;
+            // z-index: -1;
+        }
+
+        .moon {
+            // FORMERLY:
+            // height: 6rem;
+            // top: 80px;
+
+            height: 5rem;
+            top: 90px;
+            position: absolute;
+            top: 80px;
+            right: 250px;
+            // z-index: -1;
+        }
+
+        .bird-container {
+            // position: absolute;
+            position: absolute;
+            right: -50px;
+            top: 0;
+            left: 0;
+            // left: ;
+            width: 100%;
+            height: 60vh;
+            // background: white !important;
+
+
+            img {
+                position: absolute;
+                height: 2.5rem;
+                // right: 200px;
+                right: -50px;
+                top: 110px;
+            }
+        }
+    }
+
+    .hills {
+        background-image: url(assets/images/hills2.png);
+        background-size: cover;
+        background-repeat: repeat-x;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        height: 26rem;
+        width: 100%;
+        transition: filter 1s;
+        // animation: 5s linear h infinite;
+
+        // @keyframes h {
+        //     from {
+        //         background-position-x: left;
+        //     }
+
+        //     to {
+        //         background-position-x: right;
+        //     }
+        // }
+        // animation: 1s sss infinite;
+
+        // @keyframes sss {
+        //     0% {background-position-x: 0;}
+        //     100% {background-position-x: 100%;}
+        // }
+        // z-index: 10;
+    }
+
+    .towers {
+        // .towers-first-space {
+        //     width: 100rem;
+        //     height: 10rem;
+        //     background: red;
+        // }
+
+        height: 75vh;
+        display: flex;
+        // align-items: flex-end;
+        // justify-content: flex-end;
+        position: absolute;
+        bottom: 0;
+        // left: 100rem;
+        // left: 100rem !important;
+        margin-left: 100%;
+        // right: -100rem;
+
+        transition: opacity 1s;
+        // background: red;
+
+        .tower {
+            display: flex;
+            height: 100%;
+            position: relative;
+            // margin-right: 10rem;
+            margin-right: 25rem;
+            // bottom: 0;
+            // margin-top: 10px;
+            // flex-grow: 1;
+
+
+            // &.h0 { top: 100%; }
+            // &.h10 { top: 90%; }
+            // &.h20 { top: 80%; }
+            // &.h30 { top: 70%; }
+            // &.h40 { top: 60%; }
+            // &.h50 { top: 50%; }
+            // &.h60 { top: 40%; }
+            // &.h70 { top: 30%; }
+            // &.h80 { top: 20%; }
+            // &.h90 { top: 10%; }
+            // &.h100 { top: 0; }
+
+            svg {
+                margin-top: auto;
+                height: 100%;
+                // height: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,484 @@
+.plane > .preloader::after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  z-index: -1;
+  content: url("assets/images/plane3_frames/frame_0.png") url("assets/images/plane3_frames/frame_1.png") url("assets/images/plane3_frames/frame_2.png") url("assets/images/plane3_frames/frame_3.png") url("assets/images/plane3_frames/frame_4.png") url("assets/images/plane3_frames/frame_5.png");
+}
+
+@keyframes planeAnimation {
+  0% {
+    background-image: url("assets/images/plane3_frames/frame_0.png");
+  }
+  16.66% {
+    background-image: url("assets/images/plane3_frames/frame_1.png");
+  }
+  33.33% {
+    background-image: url("assets/images/plane3_frames/frame_2.png");
+  }
+  50% {
+    background-image: url("assets/images/plane3_frames/frame_3.png");
+  }
+  66.66% {
+    background-image: url("assets/images/plane3_frames/frame_4.png");
+  }
+  83.33% {
+    background-image: url("assets/images/plane3_frames/frame_5.png");
+  }
+  100% {
+    background-image: url("assets/images/plane3_frames/frame_0.png");
+  }
+}
+@keyframes fadein {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeout {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes planeLightsAnimation {
+  0% {
+    margin-top: 2px;
+  }
+  100% {
+    margin-top: 0;
+  }
+}
+@keyframes planeRedLightBlink {
+  0% {
+    background: black;
+  }
+  50% {
+    background: red;
+  }
+}
+@keyframes planeRedLightAnimation {
+  0% {
+    margin-top: 0;
+  }
+  100% {
+    margin-top: 2px;
+  }
+}
+@keyframes moonDown {
+  100% {
+    top: 100vh;
+  }
+}
+@keyframes moonUp {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 90px;
+  }
+}
+@keyframes sunUp {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 90px;
+  }
+}
+@keyframes sunDown {
+  100% {
+    top: 100vh;
+  }
+}
+@font-face {
+  font-family: minecraft;
+  src: url(assets/fonts/Minecraft.ttf);
+}
+html,
+body {
+  margin: 0;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+#main {
+  height: 100%;
+  width: 100%;
+}
+#main.playing .banner {
+  transform: translateX(100%);
+}
+#main.gameover .banner-start, #main.gameover .banner-config-mic, #main.gameover .banner-allow-mic {
+  display: none !important;
+}
+#main.gameover .banner-gameover {
+  display: initial !important;
+  opacity: 1 !important;
+}
+#main.gameover .banner-main-title {
+  display: none;
+}
+#main.gameover .banner-text-upper {
+  height: 0 !important;
+}
+#main.gameover .banner-text-lower {
+  flex-grow: 0 !important;
+}
+#main.not-started .plane-image,
+#main.not-started .smoke {
+  transform: scale(4);
+}
+#main.not-started .plane-image {
+  left: 320px !important;
+  top: calc(50vh - calc(4.5rem * 4 / 2) + 3rem) !important;
+}
+#main.not-started .smoke {
+  margin-top: 8rem;
+}
+#main.not-started .towers {
+  opacity: 0;
+}
+#main .banner {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 20;
+  transition: transform 1s;
+}
+#main .banner .banner-plane {
+  width: 40%;
+}
+#main .banner .banner-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  background: linear-gradient(to left, white 60%, transparent);
+  font-family: Minecraft;
+  flex-direction: column;
+}
+#main .banner .banner-text > div {
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#main .banner .banner-text .hidden {
+  display: none;
+  opacity: 0;
+}
+#main .banner .banner-text .banner-text-upper {
+  height: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#main .banner .banner-text .banner-text-lower {
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+}
+#main .banner .banner-text .banner-text-lower .banner-hider {
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 30;
+  opacity: 0;
+  display: none;
+}
+#main .banner .banner-text .banner-text-title {
+  font-size: 4.5rem;
+}
+#main .banner .banner-text .banner-allow-mic {
+  margin-top: 5rem;
+}
+#main .banner .banner-text .banner-gameover .banner-text-title {
+  margin-bottom: 5rem;
+}
+#main .banner .banner-text .banner-gameover .banner-gameover-scores {
+  text-align: center;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem 0;
+}
+#main .banner .banner-text .banner-gameover .banner-gameover-scores .banner-did-highscore {
+  color: blue;
+  margin-bottom: 0.5rem;
+}
+#main .banner .banner-text .banner-gameover .banner-gameover-scores .banner-scores-list .banner-current-score {
+  margin-right: 2rem;
+}
+#main .banner .banner-text .banner-config-mic {
+  z-index: 40;
+}
+#main .banner .banner-text .banner-start .banner-text-subtitle, #main .banner .banner-text .banner-gameover .banner-text-subtitle, #main .banner .banner-text .banner-allow-mic .banner-text-subtitle, #main .banner .banner-text .banner-config-mic .banner-text-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 4rem;
+  width: 22rem;
+  text-align: center;
+}
+#main .banner .banner-text .banner-start .banner-btn-sizer, #main .banner .banner-text .banner-gameover .banner-btn-sizer, #main .banner .banner-text .banner-allow-mic .banner-btn-sizer, #main .banner .banner-text .banner-config-mic .banner-btn-sizer {
+  display: flex;
+  flex-direction: column;
+}
+#main .banner .banner-text .banner-start .banner-button, #main .banner .banner-text .banner-gameover .banner-button, #main .banner .banner-text .banner-allow-mic .banner-button, #main .banner .banner-text .banner-config-mic .banner-button {
+  padding: 1.7rem 2rem 1.2rem 2.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: white;
+  transition: 0.2s;
+  cursor: pointer;
+  user-select: none;
+}
+#main .banner .banner-text .banner-start .banner-button:not(:last-of-type), #main .banner .banner-text .banner-gameover .banner-button:not(:last-of-type), #main .banner .banner-text .banner-allow-mic .banner-button:not(:last-of-type), #main .banner .banner-text .banner-config-mic .banner-button:not(:last-of-type) {
+  margin-bottom: 2rem;
+}
+#main .banner .banner-text .banner-start .banner-button.btn-grant img, #main .banner .banner-text .banner-start .banner-button.btn-start-recording img, #main .banner .banner-text .banner-gameover .banner-button.btn-grant img, #main .banner .banner-text .banner-gameover .banner-button.btn-start-recording img, #main .banner .banner-text .banner-allow-mic .banner-button.btn-grant img, #main .banner .banner-text .banner-allow-mic .banner-button.btn-start-recording img, #main .banner .banner-text .banner-config-mic .banner-button.btn-grant img, #main .banner .banner-text .banner-config-mic .banner-button.btn-start-recording img {
+  height: 4rem;
+  margin-left: 1rem;
+  margin-top: -1rem;
+}
+#main .banner .banner-text .banner-start .banner-button.btn-config, #main .banner .banner-text .banner-gameover .banner-button.btn-config, #main .banner .banner-text .banner-allow-mic .banner-button.btn-config, #main .banner .banner-text .banner-config-mic .banner-button.btn-config {
+  background: #a1a1a1;
+  box-shadow: -6px 6px #e2e2e2;
+}
+#main .banner .banner-text .banner-start .banner-button.btn-config img, #main .banner .banner-text .banner-gameover .banner-button.btn-config img, #main .banner .banner-text .banner-allow-mic .banner-button.btn-config img, #main .banner .banner-text .banner-config-mic .banner-button.btn-config img {
+  height: 4rem;
+  margin-left: 1rem;
+  margin-top: -1rem;
+}
+#main .banner .banner-text .banner-start .banner-button.btn-config:hover, #main .banner .banner-text .banner-gameover .banner-button.btn-config:hover, #main .banner .banner-text .banner-allow-mic .banner-button.btn-config:hover, #main .banner .banner-text .banner-config-mic .banner-button.btn-config:hover {
+  box-shadow: -10px 10px #e2e2e2;
+  transform: scale(1.1);
+  background: #c2c2c2;
+}
+#main .banner .banner-text .banner-start .banner-button.btn-play, #main .banner .banner-text .banner-start .banner-button.btn-play-again, #main .banner .banner-text .banner-start .banner-button.btn-grant, #main .banner .banner-text .banner-start .banner-button.btn-start-recording, #main .banner .banner-text .banner-gameover .banner-button.btn-play, #main .banner .banner-text .banner-gameover .banner-button.btn-play-again, #main .banner .banner-text .banner-gameover .banner-button.btn-grant, #main .banner .banner-text .banner-gameover .banner-button.btn-start-recording, #main .banner .banner-text .banner-allow-mic .banner-button.btn-play, #main .banner .banner-text .banner-allow-mic .banner-button.btn-play-again, #main .banner .banner-text .banner-allow-mic .banner-button.btn-grant, #main .banner .banner-text .banner-allow-mic .banner-button.btn-start-recording, #main .banner .banner-text .banner-config-mic .banner-button.btn-play, #main .banner .banner-text .banner-config-mic .banner-button.btn-play-again, #main .banner .banner-text .banner-config-mic .banner-button.btn-grant, #main .banner .banner-text .banner-config-mic .banner-button.btn-start-recording {
+  background: #008cff;
+  box-shadow: -6px 6px #a0d4ff;
+}
+#main .banner .banner-text .banner-start .banner-button.btn-play:hover, #main .banner .banner-text .banner-start .banner-button.btn-play-again:hover, #main .banner .banner-text .banner-start .banner-button.btn-grant:hover, #main .banner .banner-text .banner-start .banner-button.btn-start-recording:hover, #main .banner .banner-text .banner-gameover .banner-button.btn-play:hover, #main .banner .banner-text .banner-gameover .banner-button.btn-play-again:hover, #main .banner .banner-text .banner-gameover .banner-button.btn-grant:hover, #main .banner .banner-text .banner-gameover .banner-button.btn-start-recording:hover, #main .banner .banner-text .banner-allow-mic .banner-button.btn-play:hover, #main .banner .banner-text .banner-allow-mic .banner-button.btn-play-again:hover, #main .banner .banner-text .banner-allow-mic .banner-button.btn-grant:hover, #main .banner .banner-text .banner-allow-mic .banner-button.btn-start-recording:hover, #main .banner .banner-text .banner-config-mic .banner-button.btn-play:hover, #main .banner .banner-text .banner-config-mic .banner-button.btn-play-again:hover, #main .banner .banner-text .banner-config-mic .banner-button.btn-grant:hover, #main .banner .banner-text .banner-config-mic .banner-button.btn-start-recording:hover {
+  box-shadow: -10px 10px #a0d4ff;
+  transform: scale(1.1);
+  background: #3ba7ff;
+}
+#main .explosion {
+  position: absolute;
+  height: 6rem;
+  z-index: 20;
+}
+#main .background-canvas {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+#main.day-initial {
+  background: #020024;
+  background: linear-gradient(0deg, #020024 0%, white 0%, #bbfeff 100%);
+}
+#main.day-initial .night-plane-light,
+#main.day-initial .night-plane-redlight {
+  opacity: 0;
+}
+#main.day-initial .moon {
+  top: -100%;
+  display: none;
+}
+#main.day-initial .smoke {
+  filter: brightness(90%);
+}
+#main.day {
+  background: #020024;
+  background: linear-gradient(0deg, #020024 0%, white 0%, #bbfeff 100%);
+}
+#main.day .night-plane-light,
+#main.day .night-plane-redlight {
+  opacity: 0;
+}
+#main.day .sun {
+  animation: 1s sunUp forwards ease-out;
+}
+#main.day .moon {
+  animation: 0.8s moonDown forwards ease-in;
+}
+#main.day .smoke {
+  filter: brightness(90%);
+}
+#main.night {
+  background: #000428;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #004e92, #000428);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #004e92, #000428);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#main.night .smoke {
+  filter: brightness(120%);
+}
+#main.night .sun {
+  animation: 0.8s sunDown forwards ease-in;
+}
+#main.night .moon {
+  animation: 1s moonUp forwards ease-out;
+}
+#main.night .night-plane-light {
+  opacity: 1;
+}
+#main.night .plane-image {
+  filter: brightness(70%);
+}
+#main.night .hills {
+  filter: brightness(80%);
+}
+#main.night .tower .tower-main-border {
+  filter: brightness(75%);
+}
+#main.night .tower .tower-window {
+  filter: brightness(140%);
+}
+#main.night .scores {
+  color: white;
+}
+#main .scores {
+  font-family: minecraft;
+  font-size: 1.5rem;
+  position: absolute;
+  right: 2.5rem;
+  top: 2rem;
+  z-index: 10;
+}
+#main .top-section .plane-image {
+  height: 3.65rem;
+  position: relative;
+  top: 100px;
+  left: 250px;
+  z-index: 1;
+  transition: filter 0.2s;
+}
+#main .top-section .plane-image.plane-dead-1 {
+  transition: transform 1s, left 1s, top 1s linear !important;
+  animation: 0.2s dead-1 steps(2, jump-none);
+  animation-iteration-count: 5;
+}
+@keyframes dead-1 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#main .top-section .plane-image.plane-dead-2 {
+  top: 100vh !important;
+  transition: transform 1s, left 1s, top 1s linear !important;
+}
+#main .top-section .plane-image.include-move-transition {
+  transition: transform 1s, left 1s, top 1s;
+}
+#main .top-section .night-plane-light {
+  width: 200px;
+  height: 2rem;
+  background: linear-gradient(to right, rgba(255, 255, 0, 0.52), transparent);
+  position: absolute;
+  top: 117px;
+  left: 378px;
+  z-index: 0;
+  clip-path: polygon(100% 0, 0 50%, 100% 100%);
+  transition: opacity 1s;
+}
+#main .top-section .night-plane-redlight {
+  height: 5px;
+  width: 5px;
+  position: absolute;
+  top: 155px;
+  left: 330px;
+  z-index: 0;
+  background: red;
+  animation: 0.35s planeRedLightAnimation infinite steps(2) reverse, planeRedLightBlink 2s infinite steps(2);
+}
+#main .top-section .smoke {
+  height: 0.8rem;
+  position: absolute;
+  left: 213px;
+}
+#main .top-section .sun {
+  height: 6rem;
+  top: 90px;
+  position: absolute;
+  right: 250px;
+}
+#main .top-section .moon {
+  height: 5rem;
+  top: 90px;
+  position: absolute;
+  top: 80px;
+  right: 250px;
+}
+#main .top-section .bird-container {
+  position: absolute;
+  right: -50px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60vh;
+}
+#main .top-section .bird-container img {
+  position: absolute;
+  height: 2.5rem;
+  right: -50px;
+  top: 110px;
+}
+#main .hills {
+  background-image: url(assets/images/hills2.png);
+  background-size: cover;
+  background-repeat: repeat-x;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 26rem;
+  width: 100%;
+  transition: filter 1s;
+}
+#main .towers {
+  height: 75vh;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  margin-left: 100%;
+  transition: opacity 1s;
+}
+#main .towers .tower {
+  display: flex;
+  height: 100%;
+  position: relative;
+  margin-right: 25rem;
+}
+#main .towers .tower svg {
+  margin-top: auto;
+  height: 100%;
+}
+
+/*# sourceMappingURL=main.css.map */

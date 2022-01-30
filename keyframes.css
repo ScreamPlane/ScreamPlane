@@ -1,0 +1,100 @@
+.plane > .preloader::after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  z-index: -1;
+  content: url("assets/images/plane3_frames/frame_0.png") url("assets/images/plane3_frames/frame_1.png") url("assets/images/plane3_frames/frame_2.png") url("assets/images/plane3_frames/frame_3.png") url("assets/images/plane3_frames/frame_4.png") url("assets/images/plane3_frames/frame_5.png");
+}
+
+@keyframes planeAnimation {
+  0% {
+    background-image: url("assets/images/plane3_frames/frame_0.png");
+  }
+  16.66% {
+    background-image: url("assets/images/plane3_frames/frame_1.png");
+  }
+  33.33% {
+    background-image: url("assets/images/plane3_frames/frame_2.png");
+  }
+  50% {
+    background-image: url("assets/images/plane3_frames/frame_3.png");
+  }
+  66.66% {
+    background-image: url("assets/images/plane3_frames/frame_4.png");
+  }
+  83.33% {
+    background-image: url("assets/images/plane3_frames/frame_5.png");
+  }
+  100% {
+    background-image: url("assets/images/plane3_frames/frame_0.png");
+  }
+}
+@keyframes fadein {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeout {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes planeLightsAnimation {
+  0% {
+    margin-top: 2px;
+  }
+  100% {
+    margin-top: 0;
+  }
+}
+@keyframes planeRedLightBlink {
+  0% {
+    background: black;
+  }
+  50% {
+    background: red;
+  }
+}
+@keyframes planeRedLightAnimation {
+  0% {
+    margin-top: 0;
+  }
+  100% {
+    margin-top: 2px;
+  }
+}
+@keyframes moonDown {
+  100% {
+    top: 100vh;
+  }
+}
+@keyframes moonUp {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 90px;
+  }
+}
+@keyframes sunUp {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 90px;
+  }
+}
+@keyframes sunDown {
+  100% {
+    top: 100vh;
+  }
+}
+
+/*# sourceMappingURL=keyframes.css.map */
