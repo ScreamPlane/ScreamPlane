@@ -149,6 +149,7 @@ function playAgain() {
     control_speed_bird = 100;
     control_speed_plane = 200;
 
+
     if (!is_day) {
         switchNightDay();
     }
@@ -179,6 +180,7 @@ function playAgain() {
     setTimeout(function() {
         main_frame.classList.remove('banner-hide');
         main_frame.classList.replace('gameover', 'playing');
+        night_plane_light.style.display = 'initial';
     }, 1000);
     startGame();
 }
@@ -227,6 +229,8 @@ function showGameover() {
     explode.style.left = plane.getBoundingClientRect().left + Paddings.explostion_from_plane_left + 'px';
     explode.setAttribute("src", AssetsURL.explosion);
     top_section.appendChild(explode);
+
+    night_plane_light.style.display = 'none';
 
     plane.classList.add('plane-dead-1');
 
