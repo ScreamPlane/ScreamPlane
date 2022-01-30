@@ -797,6 +797,7 @@ function config() {
     // }
 
     // setTimeout(function() {
+        btn_record.setAttribute("data-origin", "gameover");
         banner_gameover.style.display = "none";
         banner_start.style.display = "none";
         // banner_hider.style.display = "initial";
@@ -810,13 +811,15 @@ function config() {
     // }, 2000);
 }
 
-btn_config.forEach((t) => {t.onclick = config;});
+btn_config.onclick = config;
+btn_config_gameover.onclick = config;
 
 var recCount = 0;
 var recSum = 0;
 var banner_counter_number = 10;
 var counter_button_lock = false;
-btn_record.onclick = function() {
+btn_record.onclick = function(btn) {
+    
     if (!counter_button_lock) {
         var counter_button_lock = true;
         var cInterval = setInterval(function() {
@@ -846,10 +849,19 @@ btn_record.onclick = function() {
                         {opacity: 1}, {opacity: 0}
                     ], {duration: 200, fill: "forwards"});
                     banner_config.style.display = 'none';
-                    banner_start.style.display = 'initial';
-                    banner_start.animate([
-                        {opacity: 0}, {opacity: 1}
-                    ], {duration: 200, fill: "forwards"});
+
+                    if (btn.getAttribute("data-origin") === "start") {
+                        banner_start.style.display = 'initial';
+                        banner_start.animate([
+                            {opacity: 0}, {opacity: 1}
+                        ], {duration: 200, fill: "forwards"});
+                    } else {  // gameover
+                        banner_gameover.style.display = 'initial';
+                        banner_gameover.animate([
+                            {opacity: 0}, {opacity: 1}
+                        ], {duration: 200, fill: "forwards"});
+                    }
+
                 }, 1000);
 
                 clearInterval(cInterval);
@@ -887,6 +899,9 @@ btn_allow_mic.onclick = function() {
                 {opacity: 1}, {opacity: 0}
             ], {duration: 200, fill: "forwards"});
             banner_allow_mic.style.display = 'none';
+
+            btn_record.setAttribute("data-origin", "start");
+
             banner_config.style.display = 'initial';
             banner_config.animate([
                 {opacity: 0}, {opacity: 1}
