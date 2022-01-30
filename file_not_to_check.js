@@ -826,7 +826,7 @@ var recCount = 0;
 var recSum = 0;
 var banner_counter_number = 10;
 var counter_button_lock = false;
-btn_record.onclick = function(btn) {
+btn_record.onclick = function() {
     
     if (!counter_button_lock) {
         var counter_button_lock = true;
@@ -858,7 +858,7 @@ btn_record.onclick = function(btn) {
                     ], {duration: 200, fill: "forwards"});
                     banner_config.style.display = 'none';
 
-                    if (btn.getAttribute("data-origin") === "start") {
+                    if (btn_record.getAttribute("data-origin") === "start") {
                         banner_start.style.display = 'initial';
                         banner_start.animate([
                             {opacity: 0}, {opacity: 1}
