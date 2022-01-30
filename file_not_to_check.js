@@ -148,7 +148,10 @@ function playAgain() {
     control_speed_towers = 100;
     control_speed_bird = 100;
     control_speed_plane = 200;
-    switchNightDay();
+
+    if (!is_day) {
+        switchNightDay();
+    }
 
 
     if (dead_timeout1) {
@@ -437,6 +440,14 @@ function startGame() {
     setTimeout(function () {
         plane.classList.remove('include-move-transition');
         clearInterval(initialInterval);
+
+        var tempBottom = setInterval(function() {
+            if (plane.getBoundingClientRect().bottom >= window.offsetHeight) {
+                gameOver = true;
+            }
+        }, 10);
+
+        setTimeout(function() {clearInterval(tempBottom)}, 10000);
 
         scoreCounterInterval = setInterval(function() {
             score += 10;
