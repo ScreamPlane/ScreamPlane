@@ -4,7 +4,7 @@
   height: 0;
   overflow: hidden;
   z-index: -1;
-  content: url("assets/images/plane3_frames/frame_0.png") url("assets/images/plane3_frames/frame_1.png") url("assets/images/plane3_frames/frame_2.png") url("assets/images/plane3_frames/frame_3.png") url("assets/images/plane3_frames/frame_4.png") url("assets/images/plane3_frames/frame_5.png");
+  content: url("assets/images/plane3_frames/frame_0.png") url("assets/images/plane3_frames/frame_1.png") url("assets/images/plane3_frames/frame_2.png") url("assets/images/plane3_frames/frame_3.png") url("assets/images/plane3_frames/frame_4.png") url("assets/images/plane3_frames/frame_5.png") url("assets/images/hills2.png") url("assets/images/bird.gif") url("assets/images/explosion.gif") url("assets/images/smoke_left.png") url("assets/images/plane3.gif");
 }
 
 @keyframes planeAnimation {

@@ -811,8 +811,16 @@ function config() {
     // }, 2000);
 }
 
-btn_config.onclick = config;
-btn_config_gameover.onclick = config;
+btn_config.onclick = function() {
+    btn_record.setAttribute("data-origin", "start");
+
+    config();
+}
+btn_config_gameover.onclick = function() {
+    btn_record.setAttribute("data-origin", "gameover");
+
+    config();
+}
 
 var recCount = 0;
 var recSum = 0;

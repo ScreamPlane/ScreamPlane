@@ -4,7 +4,7 @@
   height: 0;
   overflow: hidden;
   z-index: -1;
-  content: url("assets/images/plane3_frames/frame_0.png") url("assets/images/plane3_frames/frame_1.png") url("assets/images/plane3_frames/frame_2.png") url("assets/images/plane3_frames/frame_3.png") url("assets/images/plane3_frames/frame_4.png") url("assets/images/plane3_frames/frame_5.png");
+  content: url("assets/images/plane3_frames/frame_0.png") url("assets/images/plane3_frames/frame_1.png") url("assets/images/plane3_frames/frame_2.png") url("assets/images/plane3_frames/frame_3.png") url("assets/images/plane3_frames/frame_4.png") url("assets/images/plane3_frames/frame_5.png") url("assets/images/hills2.png") url("assets/images/bird.gif") url("assets/images/explosion.gif") url("assets/images/smoke_left.png") url("assets/images/plane3.gif");
 }
 
 @keyframes planeAnimation {
@@ -257,16 +257,16 @@ body {
   margin-left: 1rem;
   margin-top: -1rem;
 }
-#main .banner .banner-text .banner-start .banner-button.btn-config, #main .banner .banner-text .banner-gameover .banner-button.btn-config, #main .banner .banner-text .banner-allow-mic .banner-button.btn-config, #main .banner .banner-text .banner-config-mic .banner-button.btn-config {
+#main .banner .banner-text .banner-start .banner-button.btn-config, #main .banner .banner-text .banner-start .banner-button.btn-config-gameover, #main .banner .banner-text .banner-gameover .banner-button.btn-config, #main .banner .banner-text .banner-gameover .banner-button.btn-config-gameover, #main .banner .banner-text .banner-allow-mic .banner-button.btn-config, #main .banner .banner-text .banner-allow-mic .banner-button.btn-config-gameover, #main .banner .banner-text .banner-config-mic .banner-button.btn-config, #main .banner .banner-text .banner-config-mic .banner-button.btn-config-gameover {
   background: #a1a1a1;
   box-shadow: -6px 6px #e2e2e2;
 }
-#main .banner .banner-text .banner-start .banner-button.btn-config img, #main .banner .banner-text .banner-gameover .banner-button.btn-config img, #main .banner .banner-text .banner-allow-mic .banner-button.btn-config img, #main .banner .banner-text .banner-config-mic .banner-button.btn-config img {
+#main .banner .banner-text .banner-start .banner-button.btn-config img, #main .banner .banner-text .banner-start .banner-button.btn-config-gameover img, #main .banner .banner-text .banner-gameover .banner-button.btn-config img, #main .banner .banner-text .banner-gameover .banner-button.btn-config-gameover img, #main .banner .banner-text .banner-allow-mic .banner-button.btn-config img, #main .banner .banner-text .banner-allow-mic .banner-button.btn-config-gameover img, #main .banner .banner-text .banner-config-mic .banner-button.btn-config img, #main .banner .banner-text .banner-config-mic .banner-button.btn-config-gameover img {
   height: 4rem;
   margin-left: 1rem;
   margin-top: -1rem;
 }
-#main .banner .banner-text .banner-start .banner-button.btn-config:hover, #main .banner .banner-text .banner-gameover .banner-button.btn-config:hover, #main .banner .banner-text .banner-allow-mic .banner-button.btn-config:hover, #main .banner .banner-text .banner-config-mic .banner-button.btn-config:hover {
+#main .banner .banner-text .banner-start .banner-button.btn-config:hover, #main .banner .banner-text .banner-start .banner-button.btn-config-gameover:hover, #main .banner .banner-text .banner-gameover .banner-button.btn-config:hover, #main .banner .banner-text .banner-gameover .banner-button.btn-config-gameover:hover, #main .banner .banner-text .banner-allow-mic .banner-button.btn-config:hover, #main .banner .banner-text .banner-allow-mic .banner-button.btn-config-gameover:hover, #main .banner .banner-text .banner-config-mic .banner-button.btn-config:hover, #main .banner .banner-text .banner-config-mic .banner-button.btn-config-gameover:hover {
   box-shadow: -10px 10px #e2e2e2;
   transform: scale(1.1);
   background: #c2c2c2;
