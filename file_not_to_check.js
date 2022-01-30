@@ -887,6 +887,7 @@ btn_record.onclick = function() {
                         main_frame.classList.replace('config', 'gameover');
                     }
 
+                    btn_record.innerHTML = `Start <img src="assets/images/microphone.svg">`;
                     counter_button_lock = false;
 
                 }, 500);
