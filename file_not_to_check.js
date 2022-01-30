@@ -824,6 +824,11 @@ btn_record.onclick = function() {
                 localStorage.setItem('microphone_low', recSum / recCount);
                 mic_low = recSum / recCount;
 
+                recCount = 0;
+                recSum = 0;
+                banner_counter_number = 10;
+                counter_button_lock = false;
+
                 setTimeout(function() {
                     banner_start_subtitle.innerHTML = "You're all set! now click play and go! boooom";
                     banner_config.animate([
@@ -853,6 +858,8 @@ btn_allow_mic.onclick = function() {
         Mic.init();
 
         mic_low = localStorage.getItem('microphone_low');
+
+
         // mic_low = 15;
 
         if (mic_low) {
