@@ -960,3 +960,7 @@ if (hs) {
     high_score.innerHTML = "H : " + hs;
 }
 // };
+
+// preload
+var image = new Image();
+image.src = 'assets/images/explosion.gif';
