@@ -19,7 +19,7 @@ body {
     height: 100%;
     width: 100%;
 
-    &.playing {
+    &.playing, &.banner-hide {
         .banner {
             transform: translateX(100%);
         }
@@ -28,6 +28,20 @@ body {
         //     display: none !important;
         //     opacity: 0;
         // }
+    }
+
+    &.config, &.hide-top-title {
+        .banner-main-title {
+            display: none;
+        }
+
+        .banner-text-upper {
+            height: 0 !important;
+        }
+
+        .banner-text-lower {
+            flex-grow: 0 !important;
+        }
     }
 
     &.gameover {

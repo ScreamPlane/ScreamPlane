@@ -174,7 +174,12 @@ function playAgain() {
     towers_movement = 0;
     bird_movement = -50;
 
-    main_frame.classList.replace('gameover', 'playing');
+    main_frame.classList.add('banner-hide');
+    
+    setTimeout(function() {
+        main_frame.classList.remove('banner-hide');
+        main_frame.classList.replace('gameover', 'playing');
+    }, 1000);
     startGame();
 }
 
@@ -442,7 +447,7 @@ function startGame() {
         clearInterval(initialInterval);
 
         var tempBottom = setInterval(function() {
-            if (plane.getBoundingClientRect().bottom >= window.offsetHeight) {
+            if (plane.getBoundingClientRect().bottom >= window.innerHeight) {
                 gameOver = true;
             }
         }, 10);
@@ -785,6 +790,7 @@ btn_play_again.onclick = playAgain;
 
 function config() {
     main_frame.classList.replace('gameover', 'config');
+    main_frame.classList.replace('start', 'config');
     // if (cnd === "1") {
     //     banner_gameover.animate([
     //         {opacity: 1}, {opacity: 0}
@@ -797,9 +803,13 @@ function config() {
     // }
 
     // setTimeout(function() {
-        btn_record.setAttribute("data-origin", "gameover");
+        // btn_record.setAttribute("data-origin", "gameover");
         banner_gameover.style.display = "none";
         banner_start.style.display = "none";
+        banner_gameover.style.display = 'none';
+        banner_config.animate([
+            {opacity: 1}, {opacity: 0}
+        ], {duration: 200, fill: "forwards"});
         // banner_hider.style.display = "initial";
         // banner_hider.animate([
         //     {opacity: 0}, {opacity: 1}
@@ -815,9 +825,13 @@ btn_config.onclick = function() {
     btn_record.setAttribute("data-origin", "start");
 
     config();
+
+
 }
+
 btn_config_gameover.onclick = function() {
     btn_record.setAttribute("data-origin", "gameover");
+
 
     config();
 }
@@ -829,7 +843,7 @@ var counter_button_lock = false;
 btn_record.onclick = function() {
     
     if (!counter_button_lock) {
-        var counter_button_lock = true;
+        counter_button_lock = true;
         var cInterval = setInterval(function() {
             var s = Mic.getRMS(Mic.spectrum);
             recCount++;
@@ -849,7 +863,6 @@ btn_record.onclick = function() {
                 recCount = 0;
                 recSum = 0;
                 banner_counter_number = 10;
-                counter_button_lock = false;
 
                 setTimeout(function() {
                     banner_start_subtitle.innerHTML = "You're all set! now click play and go! boooom";
@@ -863,14 +876,20 @@ btn_record.onclick = function() {
                         banner_start.animate([
                             {opacity: 0}, {opacity: 1}
                         ], {duration: 200, fill: "forwards"});
+
+                        main_frame.classList.replace('config', 'start');
                     } else {  // gameover
                         banner_gameover.style.display = 'initial';
                         banner_gameover.animate([
                             {opacity: 0}, {opacity: 1}
                         ], {duration: 200, fill: "forwards"});
+
+                        main_frame.classList.replace('config', 'gameover');
                     }
 
-                }, 1000);
+                    counter_button_lock = false;
+
+                }, 500);
 
                 clearInterval(cInterval);
             }

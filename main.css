@@ -114,8 +114,17 @@ body {
   height: 100%;
   width: 100%;
 }
-#main.playing .banner {
+#main.playing .banner, #main.banner-hide .banner {
   transform: translateX(100%);
+}
+#main.config .banner-main-title, #main.hide-top-title .banner-main-title {
+  display: none;
+}
+#main.config .banner-text-upper, #main.hide-top-title .banner-text-upper {
+  height: 0 !important;
+}
+#main.config .banner-text-lower, #main.hide-top-title .banner-text-lower {
+  flex-grow: 0 !important;
 }
 #main.gameover .banner-start, #main.gameover .banner-config-mic, #main.gameover .banner-allow-mic {
   display: none !important;
