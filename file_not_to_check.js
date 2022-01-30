@@ -929,10 +929,10 @@ btn_allow_mic.onclick = function() {
 };
 
 
-window.onload = function() {
-    let hs = localStorage.getItem("high_score");
+// window.onload = function() {
+let hs = localStorage.getItem("high_score");
 
-    if (hs) {
-        high_score.innerHTML = "H : " + hs;
-    }
-};
+if (hs) {
+    high_score.innerHTML = "H : " + hs;
+}
+// };
