@@ -274,7 +274,7 @@ function mainInterval(time) {
 
     shiftItems(fraction);
     incrementSpeeds(fraction);
-    // checkMicrophone(fraction);
+    checkMicrophone(fraction);
 
     returnTrackers(fraction);
 
