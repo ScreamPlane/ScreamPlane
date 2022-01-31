@@ -1,4 +1,5 @@
 @import "keyframes.scss";
+@import "responsive.scss";
 
 @font-face {
     font-family: minecraft;
@@ -87,14 +88,15 @@ body {
         }
 
         .plane-image {
-            left: 320px !important;
-            top: calc(50vh - calc(4.5rem * 4 / 2) + 3rem) !important;
+            // left: 320px !important;
+            left: 22vw !important;
+            // top: calc(50vh - calc(4.5rem * 4 / 2) + 3rem) !important;
+            top: 38vh !important;
         }
 
         .smoke {
-            // left: 1000px;
-            margin-top: 8rem;
-            // margin-left: -5rem;
+            // margin-top: 8rem;
+            margin-top: 17vh;
         }
 
         .towers {
@@ -156,7 +158,8 @@ body {
             // height: 100%;
 
             .banner-text-upper {
-                height: 15rem;
+                // height: 15rem;
+                height: 31.64vh;
                 // background: blue;
                 display: flex;
                 align-items: center;
@@ -187,7 +190,8 @@ body {
             }
 
             .banner-text-title {
-                font-size: 4.5rem;
+                // font-size: 4.5rem;
+                font-size: 9.5vh;
                 // position: absolute;
                 // top: 7rem;
                 // top: 0;
@@ -195,29 +199,35 @@ body {
 
             .banner-allow-mic {
                 // padding-top: 5rem;
-                margin-top: 5rem;
+                // margin-top: 5rem;
+                margin-top: 10.56vh;
             }
 
             .banner-gameover {
                 .banner-text-title {
-                    margin-bottom: 5rem;
+                    // margin-bottom: 5rem;
+                    margin-bottom: 10.56vh;
                 }
 
                 .banner-gameover-scores {
                     text-align: center;
-                    font-size: 2rem;
+                    // font-size: 2rem;
+                    font-size: 4.22vh;
                     display: flex;
                     flex-direction: column;
-                    margin: 1.5rem 0;
+                    // margin: 1.5rem 0;
+                    margin: 3.16vh 0;
 
                     .banner-did-highscore {
                         color: blue;
-                        margin-bottom: .5rem;
+                        // margin-bottom: .5rem;
+                        margin-bottom: 1.05vh;
                     }
 
                     .banner-scores-list {
                         .banner-current-score {
-                            margin-right: 2rem;
+                            // margin-right: 2rem;
+                            margin-right: 2vw;
                         }
                     }
                 }
@@ -234,9 +244,12 @@ body {
 
 
                 .banner-text-subtitle {
-                    font-size: 1.5rem;
-                    margin-bottom: 4rem;
-                    width: 22rem;
+                    // font-size: 1.5rem;
+                    font-size: 3.16vh;
+                    // margin-bottom: 4rem;
+                    margin-bottom: 8.44vh;
+                    // width: 22rem;
+                    width: 22vw;
                     text-align: center;
                 }
 
@@ -246,7 +259,8 @@ body {
                 }
 
                 .banner-button {
-                    padding: 1.7rem 2rem 1.2rem 2.1rem;
+                    // padding: 1.7rem 2rem 1.2rem 2.1rem;
+                    padding: 3.59vh 2.1vw 2.53vh 2.2vw;
                     // padding: 2rem;
 
                     // padding: .5rem .7rem .5rem .7rem;
@@ -254,7 +268,8 @@ body {
                     align-items: center;
                     justify-content: center;
                     
-                    font-size: 4rem;
+                    // font-size: 4rem;
+                    font-size: 8.44vh;
                     color: white;
                     // margin-top: 3rem;
                     
@@ -263,30 +278,43 @@ body {
                     user-select: none;
 
                     &:not(:last-of-type) {
-                        margin-bottom: 2rem;
+                        // margin-bottom: 2rem;
+                        margin-bottom: 4.22vh;
                     }
 
                     &.btn-grant, &.btn-start-recording {
                         img {
-                            height: 4rem;
-                            margin-left: 1rem;
-                            margin-top: -1rem;
+                            // height: 4rem;
+                            height: 8.44vh;
+                            // margin-left: 1rem;
+                            margin-left: 1vw;
+                            // margin-top: -1rem;
+                            margin-top: -2.11vh;
                         }
                     }
                     
                     &.btn-config, &.btn-config-gameover {
                         background: rgb(161, 161, 161);
-                        box-shadow: -6px 6px rgb(226, 226, 226);
+                        // box-shadow: -6px 6px rgb(226, 226, 226);
+                        box-shadow: -0.41vw 0.8vh rgb(226, 226, 226);
 
                         img {
-                            height: 4rem;
-                            margin-left: 1rem;
-                            margin-top: -1rem;
+                            // height: 4rem;
+                            // margin-left: 1rem;
+                            // margin-top: -1rem;
+
+                            // height: 4.22vh;
+                            height: 8.44vh;
+                            // margin-left: 1rem;
+                            margin-left: 1vw;
+                            // margin-top: -1rem;
+                            margin-top: -2.11vh;
                         }
                         // font-size: 3;
 
                         &:hover {
-                            box-shadow: -10px 10px rgb(226, 226, 226);
+                            // box-shadow: -10px 10px rgb(226, 226, 226);
+                            box-shadow: -0.68vw 1.33vh rgb(226, 226, 226);
                             transform: scale(1.1);
                             background: rgb(194, 194, 194);
                         }
@@ -294,10 +322,10 @@ body {
 
                     &.btn-play, &.btn-play-again, &.btn-grant, &.btn-start-recording {
                         background: rgb(0, 140, 255);
-                        box-shadow: -6px 6px rgb(160, 212, 255);
+                        box-shadow: -0.41vw 0.8vh rgb(160, 212, 255);
 
                         &:hover {
-                            box-shadow: -10px 10px rgb(160, 212, 255);
+                            box-shadow: -0.68vw 1.33vh rgb(160, 212, 255);
                             transform: scale(1.1);
                             background: rgb(59, 167, 255);
                         }
@@ -312,7 +340,8 @@ body {
 
     .explosion {
         position: absolute;
-        height: 6rem;
+        // height: 6rem;
+        height: 12.68vh;
         z-index: 20;
     }
 
@@ -443,10 +472,13 @@ body {
 
     .scores {
         font-family: minecraft;
-        font-size: 1.5rem;
+        // font-size: 1.5rem;
+        font-size: 3.16vh;
         position: absolute;
-        right: 2.5rem;
-        top: 2rem;
+        // right: 2.5rem;
+        right: 2.5vw;
+        // top: 2rem;
+        top: 4.22vh;
         z-index: 10;
     }
 
@@ -527,10 +559,17 @@ body {
             // background: red;
 
             // height: 4.5rem;
-            height: 3.65rem;
+
+            // height: 3.65rem;
+            height: 7.7vh;
+
             position: relative;
-            top: 100px;
-            left: 250px;
+            // top: 100px;
+            top: 10vh;
+            // top: 10vw;
+
+            // left: 250px;
+            left: 15vw;
             z-index: 1;
 
             transition: filter .2s;
@@ -541,11 +580,15 @@ body {
         }
 
         .night-plane-light {
-            width: 200px;
-            height: 2rem;
+            // width: 200px;
+            width: 13.6vw;
+            // height: 2rem;
+            height: 4.22vh;
             background: linear-gradient(to right, rgba(255, 255, 0, 0.52), transparent);
             position: absolute;
-            top: 117px;
+            // top: 117px;
+            top: 15.6vh;
+            // top: 150vh;
             left: 378px;
             z-index: 0;
             // clip-path: polygon(0 0, 50% 50%, 0 100%);
@@ -584,17 +627,17 @@ body {
         //     // border-bottom: 25px solid transparent;
         // }
 
-        .night-plane-redlight {
-            height: 5px;
-            width: 5px;
-            position: absolute;
-            top: 155px;
-            left: 330px;
-            z-index: 0;
-            background: red;
+        // .night-plane-redlight {
+        //     height: 5px;
+        //     width: 5px;
+        //     position: absolute;
+        //     top: 155px;
+        //     left: 330px;
+        //     z-index: 0;
+        //     background: red;
 
-            animation: .35s planeRedLightAnimation infinite steps(2) reverse, planeRedLightBlink 2s infinite steps(2);
-        }
+        //     animation: .35s planeRedLightAnimation infinite steps(2) reverse, planeRedLightBlink 2s infinite steps(2);
+        // }
 
         // .smoke, .smoke-to-move {
         //     // height: 2.5rem;
@@ -616,12 +659,14 @@ body {
         // }
 
         .smoke {
-            height: .8rem;
+            // height: .8rem;
+            height: 1.65vh;
+
             // width: 150px;
             position: absolute;
-            // top: 135px;
-            left: 213px;
-            // left: 140px;
+            // left: 213px;
+            left: 13vw;
+
 
         }
 
@@ -630,12 +675,18 @@ body {
             // height: 7rem;
             // top: 80px;
 
-            height: 6rem;
-            top: 90px;
+            // height: 6rem;
+            height: 13vh;
+
+            // top: 90px;
+            top: 12vh;
+            // top: 100vh;
+
             // top: -100%;
 
             position: absolute;
-            right: 250px;
+            // right: 250px;
+            right: 17vw;
             // z-index: -1;
         }
 
@@ -644,18 +695,22 @@ body {
             // height: 6rem;
             // top: 80px;
 
-            height: 5rem;
-            top: 90px;
+            // height: 5rem;
+            height: 10.8vh;
+            // top: 90px;
             position: absolute;
-            top: 80px;
-            right: 250px;
+            // top: 80px;
+            top: 10.6vh;
+            // right: 250px;
+            right: 17vw;
             // z-index: -1;
         }
 
         .bird-container {
             // position: absolute;
             position: absolute;
-            right: -50px;
+            // right: -50px;
+            right: -3.4vw;
             top: 0;
             left: 0;
             // left: ;
@@ -666,10 +721,14 @@ body {
 
             img {
                 position: absolute;
-                height: 2.5rem;
+                // height: 2.5rem;
+                height: 5.27vh;
                 // right: 200px;
-                right: -50px;
-                top: 110px;
+
+                // right: -50px;
+                right: -3.4vw;
+                // top: 110px;
+                top: 14.66vh;
             }
         }
     }
@@ -682,7 +741,10 @@ body {
         bottom: 0;
         right: 0;
         left: 0;
-        height: 26rem;
+
+        // height: 26rem;
+        height: 54.84vh;
+
         width: 100%;
         transition: filter 1s;
         // animation: 5s linear h infinite;
@@ -731,7 +793,10 @@ body {
             height: 100%;
             position: relative;
             // margin-right: 10rem;
-            margin-right: 25rem;
+
+            // margin-right: 25rem;
+            margin-right: 25vw;
+
             // bottom: 0;
             // margin-top: 10px;
             // flex-grow: 1;

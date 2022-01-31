@@ -46,28 +46,12 @@
     opacity: 1;
   }
 }
-@keyframes planeLightsAnimation {
-  0% {
-    margin-top: 2px;
-  }
-  100% {
-    margin-top: 0;
-  }
-}
 @keyframes planeRedLightBlink {
   0% {
     background: black;
   }
   50% {
     background: red;
-  }
-}
-@keyframes planeRedLightAnimation {
-  0% {
-    margin-top: 0;
-  }
-  100% {
-    margin-top: 2px;
   }
 }
 @keyframes moonDown {
@@ -80,7 +64,7 @@
     top: -100%;
   }
   100% {
-    top: 90px;
+    top: 12vh;
   }
 }
 @keyframes sunUp {
@@ -88,7 +72,7 @@
     top: -100%;
   }
   100% {
-    top: 90px;
+    top: 12vh;
   }
 }
 @keyframes sunDown {
@@ -147,11 +131,11 @@ body {
   transform: scale(4);
 }
 #main.not-started .plane-image {
-  left: 320px !important;
-  top: calc(50vh - calc(4.5rem * 4 / 2) + 3rem) !important;
+  left: 22vw !important;
+  top: 38vh !important;
 }
 #main.not-started .smoke {
-  margin-top: 8rem;
+  margin-top: 17vh;
 }
 #main.not-started .towers {
   opacity: 0;
@@ -190,7 +174,7 @@ body {
   opacity: 0;
 }
 #main .banner .banner-text .banner-text-upper {
-  height: 15rem;
+  height: 31.64vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -212,35 +196,35 @@ body {
   display: none;
 }
 #main .banner .banner-text .banner-text-title {
-  font-size: 4.5rem;
+  font-size: 9.5vh;
 }
 #main .banner .banner-text .banner-allow-mic {
-  margin-top: 5rem;
+  margin-top: 10.56vh;
 }
 #main .banner .banner-text .banner-gameover .banner-text-title {
-  margin-bottom: 5rem;
+  margin-bottom: 10.56vh;
 }
 #main .banner .banner-text .banner-gameover .banner-gameover-scores {
   text-align: center;
-  font-size: 2rem;
+  font-size: 4.22vh;
   display: flex;
   flex-direction: column;
-  margin: 1.5rem 0;
+  margin: 3.16vh 0;
 }
 #main .banner .banner-text .banner-gameover .banner-gameover-scores .banner-did-highscore {
   color: blue;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.05vh;
 }
 #main .banner .banner-text .banner-gameover .banner-gameover-scores .banner-scores-list .banner-current-score {
-  margin-right: 2rem;
+  margin-right: 2vw;
 }
 #main .banner .banner-text .banner-config-mic {
   z-index: 40;
 }
 #main .banner .banner-text .banner-start .banner-text-subtitle, #main .banner .banner-text .banner-gameover .banner-text-subtitle, #main .banner .banner-text .banner-allow-mic .banner-text-subtitle, #main .banner .banner-text .banner-config-mic .banner-text-subtitle {
-  font-size: 1.5rem;
-  margin-bottom: 4rem;
-  width: 22rem;
+  font-size: 3.16vh;
+  margin-bottom: 8.44vh;
+  width: 22vw;
   text-align: center;
 }
 #main .banner .banner-text .banner-start .banner-btn-sizer, #main .banner .banner-text .banner-gameover .banner-btn-sizer, #main .banner .banner-text .banner-allow-mic .banner-btn-sizer, #main .banner .banner-text .banner-config-mic .banner-btn-sizer {
@@ -248,50 +232,50 @@ body {
   flex-direction: column;
 }
 #main .banner .banner-text .banner-start .banner-button, #main .banner .banner-text .banner-gameover .banner-button, #main .banner .banner-text .banner-allow-mic .banner-button, #main .banner .banner-text .banner-config-mic .banner-button {
-  padding: 1.7rem 2rem 1.2rem 2.1rem;
+  padding: 3.59vh 2.1vw 2.53vh 2.2vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 4rem;
+  font-size: 8.44vh;
   color: white;
   transition: 0.2s;
   cursor: pointer;
   user-select: none;
 }
 #main .banner .banner-text .banner-start .banner-button:not(:last-of-type), #main .banner .banner-text .banner-gameover .banner-button:not(:last-of-type), #main .banner .banner-text .banner-allow-mic .banner-button:not(:last-of-type), #main .banner .banner-text .banner-config-mic .banner-button:not(:last-of-type) {
-  margin-bottom: 2rem;
+  margin-bottom: 4.22vh;
 }
 #main .banner .banner-text .banner-start .banner-button.btn-grant img, #main .banner .banner-text .banner-start .banner-button.btn-start-recording img, #main .banner .banner-text .banner-gameover .banner-button.btn-grant img, #main .banner .banner-text .banner-gameover .banner-button.btn-start-recording img, #main .banner .banner-text .banner-allow-mic .banner-button.btn-grant img, #main .banner .banner-text .banner-allow-mic .banner-button.btn-start-recording img, #main .banner .banner-text .banner-config-mic .banner-button.btn-grant img, #main .banner .banner-text .banner-config-mic .banner-button.btn-start-recording img {
-  height: 4rem;
-  margin-left: 1rem;
-  margin-top: -1rem;
+  height: 8.44vh;
+  margin-left: 1vw;
+  margin-top: -2.11vh;
 }
 #main .banner .banner-text .banner-start .banner-button.btn-config, #main .banner .banner-text .banner-start .banner-button.btn-config-gameover, #main .banner .banner-text .banner-gameover .banner-button.btn-config, #main .banner .banner-text .banner-gameover .banner-button.btn-config-gameover, #main .banner .banner-text .banner-allow-mic .banner-button.btn-config, #main .banner .banner-text .banner-allow-mic .banner-button.btn-config-gameover, #main .banner .banner-text .banner-config-mic .banner-button.btn-config, #main .banner .banner-text .banner-config-mic .banner-button.btn-config-gameover {
   background: #a1a1a1;
-  box-shadow: -6px 6px #e2e2e2;
+  box-shadow: -0.41vw 0.8vh #e2e2e2;
 }
 #main .banner .banner-text .banner-start .banner-button.btn-config img, #main .banner .banner-text .banner-start .banner-button.btn-config-gameover img, #main .banner .banner-text .banner-gameover .banner-button.btn-config img, #main .banner .banner-text .banner-gameover .banner-button.btn-config-gameover img, #main .banner .banner-text .banner-allow-mic .banner-button.btn-config img, #main .banner .banner-text .banner-allow-mic .banner-button.btn-config-gameover img, #main .banner .banner-text .banner-config-mic .banner-button.btn-config img, #main .banner .banner-text .banner-config-mic .banner-button.btn-config-gameover img {
-  height: 4rem;
-  margin-left: 1rem;
-  margin-top: -1rem;
+  height: 8.44vh;
+  margin-left: 1vw;
+  margin-top: -2.11vh;
 }
 #main .banner .banner-text .banner-start .banner-button.btn-config:hover, #main .banner .banner-text .banner-start .banner-button.btn-config-gameover:hover, #main .banner .banner-text .banner-gameover .banner-button.btn-config:hover, #main .banner .banner-text .banner-gameover .banner-button.btn-config-gameover:hover, #main .banner .banner-text .banner-allow-mic .banner-button.btn-config:hover, #main .banner .banner-text .banner-allow-mic .banner-button.btn-config-gameover:hover, #main .banner .banner-text .banner-config-mic .banner-button.btn-config:hover, #main .banner .banner-text .banner-config-mic .banner-button.btn-config-gameover:hover {
-  box-shadow: -10px 10px #e2e2e2;
+  box-shadow: -0.68vw 1.33vh #e2e2e2;
   transform: scale(1.1);
   background: #c2c2c2;
 }
 #main .banner .banner-text .banner-start .banner-button.btn-play, #main .banner .banner-text .banner-start .banner-button.btn-play-again, #main .banner .banner-text .banner-start .banner-button.btn-grant, #main .banner .banner-text .banner-start .banner-button.btn-start-recording, #main .banner .banner-text .banner-gameover .banner-button.btn-play, #main .banner .banner-text .banner-gameover .banner-button.btn-play-again, #main .banner .banner-text .banner-gameover .banner-button.btn-grant, #main .banner .banner-text .banner-gameover .banner-button.btn-start-recording, #main .banner .banner-text .banner-allow-mic .banner-button.btn-play, #main .banner .banner-text .banner-allow-mic .banner-button.btn-play-again, #main .banner .banner-text .banner-allow-mic .banner-button.btn-grant, #main .banner .banner-text .banner-allow-mic .banner-button.btn-start-recording, #main .banner .banner-text .banner-config-mic .banner-button.btn-play, #main .banner .banner-text .banner-config-mic .banner-button.btn-play-again, #main .banner .banner-text .banner-config-mic .banner-button.btn-grant, #main .banner .banner-text .banner-config-mic .banner-button.btn-start-recording {
   background: #008cff;
-  box-shadow: -6px 6px #a0d4ff;
+  box-shadow: -0.41vw 0.8vh #a0d4ff;
 }
 #main .banner .banner-text .banner-start .banner-button.btn-play:hover, #main .banner .banner-text .banner-start .banner-button.btn-play-again:hover, #main .banner .banner-text .banner-start .banner-button.btn-grant:hover, #main .banner .banner-text .banner-start .banner-button.btn-start-recording:hover, #main .banner .banner-text .banner-gameover .banner-button.btn-play:hover, #main .banner .banner-text .banner-gameover .banner-button.btn-play-again:hover, #main .banner .banner-text .banner-gameover .banner-button.btn-grant:hover, #main .banner .banner-text .banner-gameover .banner-button.btn-start-recording:hover, #main .banner .banner-text .banner-allow-mic .banner-button.btn-play:hover, #main .banner .banner-text .banner-allow-mic .banner-button.btn-play-again:hover, #main .banner .banner-text .banner-allow-mic .banner-button.btn-grant:hover, #main .banner .banner-text .banner-allow-mic .banner-button.btn-start-recording:hover, #main .banner .banner-text .banner-config-mic .banner-button.btn-play:hover, #main .banner .banner-text .banner-config-mic .banner-button.btn-play-again:hover, #main .banner .banner-text .banner-config-mic .banner-button.btn-grant:hover, #main .banner .banner-text .banner-config-mic .banner-button.btn-start-recording:hover {
-  box-shadow: -10px 10px #a0d4ff;
+  box-shadow: -0.68vw 1.33vh #a0d4ff;
   transform: scale(1.1);
   background: #3ba7ff;
 }
 #main .explosion {
   position: absolute;
-  height: 6rem;
+  height: 12.68vh;
   z-index: 20;
 }
 #main .background-canvas {
@@ -372,17 +356,17 @@ body {
 }
 #main .scores {
   font-family: minecraft;
-  font-size: 1.5rem;
+  font-size: 3.16vh;
   position: absolute;
-  right: 2.5rem;
-  top: 2rem;
+  right: 2.5vw;
+  top: 4.22vh;
   z-index: 10;
 }
 #main .top-section .plane-image {
-  height: 3.65rem;
+  height: 7.7vh;
   position: relative;
-  top: 100px;
-  left: 250px;
+  top: 10vh;
+  left: 15vw;
   z-index: 1;
   transition: filter 0.2s;
 }
@@ -407,47 +391,36 @@ body {
   transition: transform 1s, left 1s, top 1s;
 }
 #main .top-section .night-plane-light {
-  width: 200px;
-  height: 2rem;
+  width: 13.6vw;
+  height: 4.22vh;
   background: linear-gradient(to right, rgba(255, 255, 0, 0.52), transparent);
   position: absolute;
-  top: 117px;
+  top: 15.6vh;
   left: 378px;
   z-index: 0;
   clip-path: polygon(100% 0, 0 50%, 100% 100%);
   transition: opacity 1s;
 }
-#main .top-section .night-plane-redlight {
-  height: 5px;
-  width: 5px;
-  position: absolute;
-  top: 155px;
-  left: 330px;
-  z-index: 0;
-  background: red;
-  animation: 0.35s planeRedLightAnimation infinite steps(2) reverse, planeRedLightBlink 2s infinite steps(2);
-}
 #main .top-section .smoke {
-  height: 0.8rem;
+  height: 1.65vh;
   position: absolute;
-  left: 213px;
+  left: 13vw;
 }
 #main .top-section .sun {
-  height: 6rem;
-  top: 90px;
+  height: 13vh;
+  top: 12vh;
   position: absolute;
-  right: 250px;
+  right: 17vw;
 }
 #main .top-section .moon {
-  height: 5rem;
-  top: 90px;
+  height: 10.8vh;
   position: absolute;
-  top: 80px;
-  right: 250px;
+  top: 10.6vh;
+  right: 17vw;
 }
 #main .top-section .bird-container {
   position: absolute;
-  right: -50px;
+  right: -3.4vw;
   top: 0;
   left: 0;
   width: 100%;
@@ -455,9 +428,9 @@ body {
 }
 #main .top-section .bird-container img {
   position: absolute;
-  height: 2.5rem;
-  right: -50px;
-  top: 110px;
+  height: 5.27vh;
+  right: -3.4vw;
+  top: 14.66vh;
 }
 #main .hills {
   background-image: url(assets/images/hills2.png);
@@ -467,7 +440,7 @@ body {
   bottom: 0;
   right: 0;
   left: 0;
-  height: 26rem;
+  height: 54.84vh;
   width: 100%;
   transition: filter 1s;
 }
@@ -483,7 +456,7 @@ body {
   display: flex;
   height: 100%;
   position: relative;
-  margin-right: 25rem;
+  margin-right: 25vw;
 }
 #main .towers .tower svg {
   margin-top: auto;

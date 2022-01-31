@@ -53,20 +53,25 @@ function shiftItems(fraction) {
     }
 
     if (bird_image.getBoundingClientRect().right + 30 < 10) {
-        bird_movement = -50;
-        bird_image.style.top = (10 + Math.random() * (bird_container.offsetHeight - 10)) + 'px';
+        bird_movement = -50 * Constants.vwpx_factor;
+        // bird_image.style.top = (10 + Math.random() * (bird_container.offsetHeight - 10)) * Constants.vwpx_factor + 'px';
+        bird_image.style.top = (10 + Math.random() * (bird_container.offsetHeight - 10)) * Constants.vwpx_factor + 'vh';
     }
 
-    hills.style.backgroundPositionX = -hills_movement + 'px';
-    towers.style.left = -towers_movement + 'px';
-    bird_container.firstElementChild.style.right = bird_movement + 'px';
+    // hills.style.backgroundPositionX = -hills_movement + 'px';
+    hills.style.backgroundPositionX = -hills_movement * Constants.vwpx_factor + 'vw';
+    // towers.style.left = -towers_movement + 'px';
+    towers.style.left = -towers_movement * Constants.vwpx_factor + 'vw';
+    // bird_container.firstElementChild.style.right = bird_movement + 'px';
+    bird_container.firstElementChild.style.right = bird_movement * Constants.vwpx_factor + 'vw';
 
     if (intervalTrackers.addSmoke === 0) {
         addSmoke();
     }
 
     document.querySelectorAll(Identifiers.smoke).forEach(function (smoke) {
-        smoke.style.left = (smoke.getBoundingClientRect().left - 4 * fraction) + 'px';
+        // smoke.style.left = (smoke.getBoundingClientRect().left - 4 * fraction) + 'px';
+        smoke.style.left = (smoke.getBoundingClientRect().left - 4 * fraction) * Constants.vwpx_factor + 'vw';
     });
 }
 
@@ -122,6 +127,7 @@ function checkMicrophone(fraction) {
     }
 
     var finalCalcPlane = (plane.getBoundingClientRect().top + (final * fraction) / 100);
+    finalCalcPlane = finalCalcPlane * Constants.vhpx_factor;
     // var finalCalcLight = (night_plane_light.getBoundingClientRect().top + (final) / 100);
     // var finalCalcRedLight = (night_plane_red_light.getBoundingClientRect().top + (final) / 100);
     if (finalCalcPlane >= 0) {
@@ -268,7 +274,7 @@ function mainInterval(time) {
 
     shiftItems(fraction);
     incrementSpeeds(fraction);
-    checkMicrophone(fraction);
+    // checkMicrophone(fraction);
 
     returnTrackers(fraction);
 
@@ -289,14 +295,16 @@ function mainInterval(time) {
 
 function initialIntervalRunner() {
     hills_movement += control_speed_towers / 50;
-    hills.style.backgroundPositionX = -hills_movement + 'px';
+    // hills.style.backgroundPositionX = -hills_movement + 'px';
+    hills.style.backgroundPositionX = -hills_movement * Constants.vwpx_factor + 'vw';
 
     if (intervalTrackers.addSmoke === 0) {
         addSmoke();
     }
 
     document.querySelectorAll(Identifiers.smoke).forEach(function (smoke) {
-        smoke.style.left = (smoke.getBoundingClientRect().left - 4) + 'px';
+        // smoke.style.left = (smoke.getBoundingClientRect().left - 4) + 'px';
+        smoke.style.left = (smoke.getBoundingClientRect().left - 4) * Constants.vwpx_factor + 'vh';
     });
 
     returnTrackers();
@@ -666,7 +674,7 @@ function startGame() {
 
     dayNightInterval = setInterval(function () {
         switchNightDay();
-    }, 60000);
+    }, 30000);
 
     // setTimeout(function() {
     //     switchNightDay();
@@ -964,3 +972,4 @@ if (hs) {
 // preload
 var image = new Image();
 image.src = 'assets/images/explosion.gif';
+// switchNightDay();

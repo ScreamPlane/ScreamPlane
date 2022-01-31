@@ -46,28 +46,12 @@
     opacity: 1;
   }
 }
-@keyframes planeLightsAnimation {
-  0% {
-    margin-top: 2px;
-  }
-  100% {
-    margin-top: 0;
-  }
-}
 @keyframes planeRedLightBlink {
   0% {
     background: black;
   }
   50% {
     background: red;
-  }
-}
-@keyframes planeRedLightAnimation {
-  0% {
-    margin-top: 0;
-  }
-  100% {
-    margin-top: 2px;
   }
 }
 @keyframes moonDown {
@@ -80,7 +64,7 @@
     top: -100%;
   }
   100% {
-    top: 90px;
+    top: 12vh;
   }
 }
 @keyframes sunUp {
@@ -88,7 +72,7 @@
     top: -100%;
   }
   100% {
-    top: 90px;
+    top: 12vh;
   }
 }
 @keyframes sunDown {

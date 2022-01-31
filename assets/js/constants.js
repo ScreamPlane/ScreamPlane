@@ -16,6 +16,9 @@ const Constants = {
     tower_top_margin: 5,
 
     game_initial_delay: 1000,  // ms
+
+    vhpx_factor: 0.13333333333333333,
+    vwpx_factor: 0.068,
 };
 
 const AssetsURL = {
