@@ -1,6 +1,6 @@
 var control_speed_towers = 100;
 var control_speed_bird = 100;
-var control_speed_plane = 200;
+var control_speed_plane = 100;
 
 var is_game_started = false;
 
@@ -40,7 +40,7 @@ function shiftItems(fraction) {
 
     if (towers.lastElementChild.getBoundingClientRect().right - window.outerWidth < 10) {
         let mr = getComputedStyle(towers.firstElementChild).marginRight;
-        towers_movement -= (towers.firstElementChild.offsetWidth + Number(mr.substring(0, mr.length - 2)));
+        towers_movement -= (towers.firstElementChild.offsetWidth + Number(mr.substring(0, mr.length - 2))) * Constants.vwpx_factor;
         towers.removeChild(towers.firstElementChild);
 
         let new_tower = document.createElement("div");
@@ -97,6 +97,7 @@ function addSmoke() {
     new_smoke.setAttribute("src", AssetsURL.smoke);
     new_smoke.setAttribute("class", Identifiers.smoke.substring(1));
     new_smoke.style.top = (plane.getBoundingClientRect().top + Paddings.smoke_from_plane_top) + 'px';
+    // new_smoke.style.top = (plane.getBoundingClientRect().top + Paddings.smoke_from_plane_top) * Constants.vhpx_factor + 'vh';
     top_section.appendChild(new_smoke);
 }
 
@@ -124,13 +125,15 @@ function checkMicrophone(fraction) {
     var final = Math.pow(control_speed_plane, 1.05);
     // if (s > 25 * Math.log10(control_speed)) {
     if (s > mic_low) {
-        final -= (Math.pow(control_speed_plane, 1.15) / 100) * s * (10 / mic_low);
+        // final -= (Math.pow(control_speed_plane, 1.15) / 100) * s * (10 / mic_low);
+        final -= (Math.pow(control_speed_plane, 1.15) / 100) * s;
         // final -= (Math.pow(control_speed_plane, 1.15) / 100) * s;
     }
 
     var finalCalcPlane = (plane.getBoundingClientRect().top + (final * fraction) / 100);
     // console.log(finalCalcPlane);
-    finalCalcPlane = finalCalcPlane * Constants.vhpx_factor;
+    // finalCalcPlane = finalCalcPlane * Constants.vhpx_factor;
+    // finalCalcPlane = finalCalcPlane * 0.5;
 
     // high_score.innerHTML = final + " " + plane.getBoundingClientRect().top;
     // high_score.innerHTML = final + " " + plane.getBoundingClientRect().top;
@@ -138,11 +141,11 @@ function checkMicrophone(fraction) {
     // var finalCalcLight = (night_plane_light.getBoundingClientRect().top + (final) / 100);
     // var finalCalcRedLight = (night_plane_red_light.getBoundingClientRect().top + (final) / 100);
     if (finalCalcPlane >= 0) {
-        // plane.style.top = finalCalcPlane + 'px';
-        plane.style.top = finalCalcPlane + 'vh';
+        plane.style.top = finalCalcPlane + 'px';
+        // plane.style.top = finalCalcPlane + 'vh';
         // high_score.innerHTML = plane.style.top;
-        // night_plane_light.style.top = (finalCalcPlane + Paddings.light_from_plane_top) + 'px';
-        night_plane_light.style.top = (finalCalcPlane + Paddings.light_from_plane_top * Constants.vhpx_factor) + 'vh';
+        night_plane_light.style.top = (finalCalcPlane + Paddings.light_from_plane_top) + 'px';
+        // night_plane_light.style.top = (finalCalcPlane + Paddings.light_from_plane_top * Constants.vhpx_factor) + 'vh';
     } 
     // console.log(s);
     // console.log(s);
@@ -163,7 +166,7 @@ function playAgain() {
     setScore();
     control_speed_towers = 100;
     control_speed_bird = 100;
-    control_speed_plane = 200;
+    control_speed_plane = 100;
 
 
     if (!is_day) {
