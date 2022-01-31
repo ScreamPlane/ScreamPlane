@@ -119,6 +119,8 @@ function checkMicrophone(fraction) {
     // alert("f")
     // setInterval(function() {
     var s = Mic.getRMS(Mic.spectrum);
+
+    high_score.innerHTML = s;
     // alert(s)
     var final = Math.pow(control_speed_plane, 1.05);
     // if (s > 25 * Math.log10(control_speed)) {
