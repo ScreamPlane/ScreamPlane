@@ -136,7 +136,7 @@ function checkMicrophone(fraction) {
         // plane.style.top = finalCalcPlane + 'px';
         plane.style.top = finalCalcPlane + 'vh';
         // night_plane_light.style.top = (finalCalcPlane + Paddings.light_from_plane_top) + 'px';
-        night_plane_light.style.top = (finalCalcPlane + Paddings.light_from_plane_top) + 'vh';
+        night_plane_light.style.top = (finalCalcPlane + Paddings.light_from_plane_top * Constants.vhpx_factor) + 'vh';
     }
     // console.log(s);
     // console.log(s);
@@ -875,6 +875,8 @@ btn_record.onclick = function() {
 
                 localStorage.setItem('microphone_low', recSum / recCount);
                 mic_low = recSum / recCount;
+                alert(recSum + ' ' + recCount + ' ' + mic_low)
+
 
                 recCount = 0;
                 recSum = 0;
