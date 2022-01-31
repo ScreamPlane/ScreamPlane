@@ -127,12 +127,16 @@ function checkMicrophone(fraction) {
     }
 
     var finalCalcPlane = (plane.getBoundingClientRect().top + (final * fraction) / 100);
+    // console.log(finalCalcPlane);
     finalCalcPlane = finalCalcPlane * Constants.vhpx_factor;
+    // console.log(finalCalcPlane);
     // var finalCalcLight = (night_plane_light.getBoundingClientRect().top + (final) / 100);
     // var finalCalcRedLight = (night_plane_red_light.getBoundingClientRect().top + (final) / 100);
     if (finalCalcPlane >= 0) {
-        plane.style.top = finalCalcPlane + 'px';
-        night_plane_light.style.top = (finalCalcPlane + Paddings.light_from_plane_top) + 'px';
+        // plane.style.top = finalCalcPlane + 'px';
+        plane.style.top = finalCalcPlane + 'vh';
+        // night_plane_light.style.top = (finalCalcPlane + Paddings.light_from_plane_top) + 'px';
+        night_plane_light.style.top = (finalCalcPlane + Paddings.light_from_plane_top) + 'vh';
     }
     // console.log(s);
     // console.log(s);
