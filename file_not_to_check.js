@@ -35,7 +35,7 @@ var bird_movement = -50;
 
 function shiftItems(fraction) {
     hills_movement += control_speed_towers * fraction / 50;
-    towers_movement += control_speed_towers * fraction / 25;
+    towers_movement += control_speed_towers * fraction * Constants.vwpx_factor * window.outerWidth / 2500;
     bird_movement += control_speed_bird * fraction / 20;
 
     if ((towers.lastElementChild.getBoundingClientRect().right - window.outerWidth) < 100) {
@@ -61,7 +61,7 @@ function shiftItems(fraction) {
     // hills.style.backgroundPositionX = -hills_movement + 'px';
     hills.style.backgroundPositionX = -hills_movement * Constants.vwpx_factor + 'vw';
     // towers.style.left = -towers_movement + 'px';
-    towers.style.left = -towers_movement * Constants.vwpx_factor + 'vw';
+    towers.style.left = -towers_movement + 'px';
     // bird_container.firstElementChild.style.right = bird_movement + 'px';
     bird_container.firstElementChild.style.right = bird_movement * Constants.vwpx_factor + 'vw';
 
@@ -162,10 +162,11 @@ function checkMicrophone(fraction) {
         // plane.style.top = finalCalcPlane + 'px';
         // plane.style.top = finalCalcPlane + 'vh';
 
-        plane.style.top = "calc(" + plane.getBoundingClientRect().top + "px" + " + " + ((final * fraction) / 100) * Constants.vhpx_factor + "vw)";
+        plane.style.top = "calc(" + plane.getBoundingClientRect().top + "px" + " + " + ((final * fraction) / 100) * Constants.vhpx_factor + "vh)";
         // plane.style.top = finalCalcPlane + 'vh';
         // high_score.innerHTML = plane.style.top;
-        night_plane_light.style.top = (finalCalcPlane + Paddings.light_from_plane_top) + 'px';
+        // night_plane_light.style.top = (finalCalcPlane + Paddings.light_from_plane_top) + 'px';
+        night_plane_light.style.top = "calc(" + plane.getBoundingClientRect().top + "px" + " + " + ((final * fraction) / 100 + Paddings.light_from_plane_top) * Constants.vhpx_factor + "vh)";
         // night_plane_light.style.top = (finalCalcPlane + Paddings.light_from_plane_top * Constants.vhpx_factor) + 'vh';
     } 
     // console.log(s);

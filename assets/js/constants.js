@@ -29,6 +29,7 @@ const AssetsURL = {
 const Paddings = {
     smoke_from_plane_top: 34,  // px
     // smoke_from_plane_top: 50,  // px
+    // light_from_plane_top: 17,  // px
     light_from_plane_top: 17,  // px
     explostion_from_plane_top: -10,  // px
     explostion_from_plane_left: 0  // px
