@@ -123,7 +123,7 @@ function checkMicrophone(fraction) {
     var final = Math.pow(control_speed_plane, 1.05);
     // if (s > 25 * Math.log10(control_speed)) {
     if (s > mic_low) {
-        final -= (Math.pow(control_speed_plane, 1.15) / 100) * s * (20 / mic_low);
+        final -= (Math.pow(control_speed_plane, 1.15) / 100) * s * (10 / mic_low);
         // final -= (Math.pow(control_speed_plane, 1.15) / 100) * s;
     }
 
