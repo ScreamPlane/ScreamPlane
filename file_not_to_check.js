@@ -120,7 +120,6 @@ function checkMicrophone(fraction) {
     // setInterval(function() {
     var s = Mic.getRMS(Mic.spectrum);
 
-    high_score.innerHTML = s;
     // alert(s)
     var final = Math.pow(control_speed_plane, 1.05);
     // if (s > 25 * Math.log10(control_speed)) {
@@ -132,6 +131,8 @@ function checkMicrophone(fraction) {
     var finalCalcPlane = (plane.getBoundingClientRect().top + (final * fraction) / 100);
     // console.log(finalCalcPlane);
     finalCalcPlane = finalCalcPlane * Constants.vhpx_factor;
+
+    high_score.innerHTML = finalCalcPlane;
     // console.log(finalCalcPlane);
     // var finalCalcLight = (night_plane_light.getBoundingClientRect().top + (final) / 100);
     // var finalCalcRedLight = (night_plane_red_light.getBoundingClientRect().top + (final) / 100);
