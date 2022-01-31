@@ -140,7 +140,7 @@ function checkMicrophone(fraction) {
     if (finalCalcPlane >= 0) {
         // plane.style.top = finalCalcPlane + 'px';
         plane.style.top = finalCalcPlane + 'vh';
-        high_score.innerHTML = plane.style.top;
+        // high_score.innerHTML = plane.style.top;
         // night_plane_light.style.top = (finalCalcPlane + Paddings.light_from_plane_top) + 'px';
         night_plane_light.style.top = (finalCalcPlane + Paddings.light_from_plane_top * Constants.vhpx_factor) + 'vh';
     } 
