@@ -38,9 +38,9 @@ function shiftItems(fraction) {
     towers_movement += control_speed_towers * fraction / 25;
     bird_movement += control_speed_bird * fraction / 20;
 
-    if (towers.lastElementChild.getBoundingClientRect().right - window.outerWidth < 10) {
+    if ((towers.lastElementChild.getBoundingClientRect().right - window.outerWidth) < 100) {
         let mr = getComputedStyle(towers.firstElementChild).marginRight;
-        towers_movement -= (towers.firstElementChild.offsetWidth + Number(mr.substring(0, mr.length - 2))) * Constants.vwpx_factor;
+        towers_movement -= (towers.firstElementChild.offsetWidth + Number(mr.substring(0, mr.length - 2)));
         towers.removeChild(towers.firstElementChild);
 
         let new_tower = document.createElement("div");
@@ -71,7 +71,9 @@ function shiftItems(fraction) {
 
     document.querySelectorAll(Identifiers.smoke).forEach(function (smoke) {
         // smoke.style.left = (smoke.getBoundingClientRect().left - 4 * fraction) + 'px';
-        smoke.style.left = (smoke.getBoundingClientRect().left - 4 * fraction) * Constants.vwpx_factor + 'vw';
+        // smoke.style.left = (smoke.getBoundingClientRect().left - 4 * fraction) * Constants.vwpx_factor + 'vw';
+        smoke.style.left = "calc(" + smoke.getBoundingClientRect().left + "px - " + (4 * fraction * Constants.vwpx_factor) + "vw)";
+        // smoke.style.left = (smoke.getBoundingClientRect().left - 4 * fraction) * Constants.vwpx_factor + 'vw';
     });
 }
 
@@ -96,7 +98,8 @@ function addSmoke() {
 
     new_smoke.setAttribute("src", AssetsURL.smoke);
     new_smoke.setAttribute("class", Identifiers.smoke.substring(1));
-    new_smoke.style.top = (plane.getBoundingClientRect().top + Paddings.smoke_from_plane_top) + 'px';
+    // new_smoke.style.top = (plane.getBoundingClientRect().top + Paddings.smoke_from_plane_top) + 'px';
+    new_smoke.style.top = "calc(" + plane.getBoundingClientRect().top + "px + " + (Paddings.smoke_from_plane_top * Constants.vhpx_factor) + "vh)";
     // new_smoke.style.top = (plane.getBoundingClientRect().top + Paddings.smoke_from_plane_top) * Constants.vhpx_factor + 'vh';
     top_section.appendChild(new_smoke);
 }
@@ -111,8 +114,12 @@ function initiateInitialTowers() {
 
 
 var mic_low = 15;
+let lastPlaneTop;
 
 function checkMicrophone(fraction) {
+    // if (lastPlaneTop === undefined) {
+    //     lastPlaneTop = plane.getBoundingClientRect().top;
+    // }
     // setTimeout(function() {
     // getLocalStream();
 
@@ -130,7 +137,17 @@ function checkMicrophone(fraction) {
         // final -= (Math.pow(control_speed_plane, 1.15) / 100) * s;
     }
 
-    var finalCalcPlane = (plane.getBoundingClientRect().top + (final * fraction) / 100);
+    // var finalCalcPlane = (plane.getBoundingClientRect().top + (final * fraction) / 100);
+
+
+
+
+    var finalCalcPlane = (plane.getBoundingClientRect().top + (final * fraction) * Constants.vhpx_factor * window.outerHeight / 10000);
+
+
+
+
+
     // console.log(finalCalcPlane);
     // finalCalcPlane = finalCalcPlane * Constants.vhpx_factor;
     // finalCalcPlane = finalCalcPlane * 0.5;
@@ -141,7 +158,11 @@ function checkMicrophone(fraction) {
     // var finalCalcLight = (night_plane_light.getBoundingClientRect().top + (final) / 100);
     // var finalCalcRedLight = (night_plane_red_light.getBoundingClientRect().top + (final) / 100);
     if (finalCalcPlane >= 0) {
-        plane.style.top = finalCalcPlane + 'px';
+        // lastPlaneTop = finalCalcPlane;
+        // plane.style.top = finalCalcPlane + 'px';
+        // plane.style.top = finalCalcPlane + 'vh';
+
+        plane.style.top = "calc(" + plane.getBoundingClientRect().top + "px" + " + " + ((final * fraction) / 100) * Constants.vhpx_factor + "vw)";
         // plane.style.top = finalCalcPlane + 'vh';
         // high_score.innerHTML = plane.style.top;
         night_plane_light.style.top = (finalCalcPlane + Paddings.light_from_plane_top) + 'px';
@@ -161,6 +182,7 @@ function setScore() {
 
 function playAgain() {
     start = undefined;
+    lastPlaneTop = undefined;
     gameOver = false;
     score = 0;
     setScore();
@@ -254,7 +276,7 @@ function showGameover() {
     plane.classList.add('plane-dead-1');
 
     dead_timeout1 = setTimeout(() => {plane.classList.remove('plane-dead-1'); explode.remove();}, 700);
-    dead_timeout2 = setTimeout(() => {plane.classList.add('plane-dead-2');}, 1000);
+    dead_timeout2 = setTimeout(() => {plane.classList.add('plane-dead-2'); }, 1000);
 
 }
 
