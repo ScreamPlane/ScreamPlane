@@ -876,7 +876,7 @@ btn_record.onclick = function() {
 
                 localStorage.setItem('microphone_low', recSum / recCount);
                 mic_low = recSum / recCount;
-                alert(recSum + ' ' + recCount + ' ' + mic_low)
+                // alert(recSum + ' ' + recCount + ' ' + mic_low)
 
 
                 recCount = 0;
