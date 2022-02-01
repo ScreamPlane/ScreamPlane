@@ -334,6 +334,30 @@ body {
                     // &.btn-play
 
                 }
+
+                .banner-credit {
+                    font-size: 2.5vh;
+                    text-align: center;
+
+                    display: flex;
+                    flex-direction: column;
+
+                    a {
+                        text-decoration: none !important;
+                        color: blue;
+                    }
+
+                    margin-top: 5vh;
+
+                    &.credits-start-banner {
+                        margin-top: 15.7vh;
+                    }
+
+
+                    :first-of-type {
+                        margin-bottom: 1vh;
+                    }
+                }
             }
         }
     }

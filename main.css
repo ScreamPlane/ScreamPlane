@@ -273,6 +273,23 @@ body {
   transform: scale(1.1);
   background: #3ba7ff;
 }
+#main .banner .banner-text .banner-start .banner-credit, #main .banner .banner-text .banner-gameover .banner-credit, #main .banner .banner-text .banner-allow-mic .banner-credit, #main .banner .banner-text .banner-config-mic .banner-credit {
+  font-size: 2.5vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5vh;
+}
+#main .banner .banner-text .banner-start .banner-credit a, #main .banner .banner-text .banner-gameover .banner-credit a, #main .banner .banner-text .banner-allow-mic .banner-credit a, #main .banner .banner-text .banner-config-mic .banner-credit a {
+  text-decoration: none !important;
+  color: blue;
+}
+#main .banner .banner-text .banner-start .banner-credit.credits-start-banner, #main .banner .banner-text .banner-gameover .banner-credit.credits-start-banner, #main .banner .banner-text .banner-allow-mic .banner-credit.credits-start-banner, #main .banner .banner-text .banner-config-mic .banner-credit.credits-start-banner {
+  margin-top: 15.7vh;
+}
+#main .banner .banner-text .banner-start .banner-credit :first-of-type, #main .banner .banner-text .banner-gameover .banner-credit :first-of-type, #main .banner .banner-text .banner-allow-mic .banner-credit :first-of-type, #main .banner .banner-text .banner-config-mic .banner-credit :first-of-type {
+  margin-bottom: 1vh;
+}
 #main .explosion {
   position: absolute;
   height: 12.68vh;
