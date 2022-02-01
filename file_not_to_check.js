@@ -1,6 +1,6 @@
 var control_speed_towers = 100;
 var control_speed_bird = 100;
-var control_speed_plane = 100;
+var control_speed_plane = 200;
 
 var is_game_started = false;
 
@@ -189,7 +189,7 @@ function playAgain() {
     setScore();
     control_speed_towers = 100;
     control_speed_bird = 100;
-    control_speed_plane = 100;
+    control_speed_plane = 200;
 
 
     if (!is_day) {
