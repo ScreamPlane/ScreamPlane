@@ -239,7 +239,7 @@ function showGameover() {
     //     {opacity: 0}, {opacity: 1}
     // ], {duration: 200, fill: "forwards"});
     var high_score = localStorage.getItem("high_score");
-
+    var did_high = true;
     if (high_score) {
         if (score > high_score) {
             high_score = score;
@@ -251,6 +251,7 @@ function showGameover() {
             banner_did_highscore.innerHTML = "";
             banner_current_score.innerHTML = score;
             banner_high_score.innerHTML = high_score;
+            did_high = false;
         }
     } else {
         high_score = score;
@@ -261,7 +262,11 @@ function showGameover() {
     }
 
     document.querySelector('.tweet img').src = dirty_draw(high_score);
-    document.querySelector('.tweet').setAttribute("href", "https://twitter.com/intent/tweet?url=screamplane.github.io&text=Just did a new high score at ScreamPlane! " + String(high_score) + "%0aPlay screamplane.github.io&hashtags=ScreamPlane");
+    if (did_high) {
+        document.querySelector('.tweet').setAttribute("href", "https://twitter.com/intent/tweet?url=screamplane.github.io&text=Just did a new high score at ScreamPlane! " + String(high_score) + "%0aPlay screamplane.github.io&hashtags=ScreamPlane");
+    } else {
+	document.querySelector('.tweet').setAttribute("href", "https://twitter.com/intent/tweet?url=screamplane.github.io&text=My new score at ScreamPlane! " + String(high_score) + "%0aPlay screamplane.github.io&hashtags=ScreamPlane");
+    }
 
     plane.classList.add('include-move-transition');
     main_frame.classList.replace('playing', 'gameover');
