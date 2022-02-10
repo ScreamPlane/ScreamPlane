@@ -12,6 +12,9 @@
 
 <div id="main" class="day not-started">
     <canvas class="background-canvas"></canvas>
+    <canvas id="canvas" style="position: absolute;"></canvas>
+
+    
     <!-- <audio src="assets/sounds/start.mp3" autoplay loop></audio> -->
     <div class="banner">
         <div class="banner-plane"></div>
@@ -56,7 +59,10 @@
                         <div class="banner-scores-list">
                             Score: <span class="banner-current-score"></span> High: <span class="banner-high-score"></span>
                         </div>
-                        <div class="share"></div>
+                        <a class=" tweet twitter-share-button"
+  href="https://twitter.com/intent/tweet?url=screamplane.github.io&text=Just did a new high score at ScreamPlane!%0aPlay screamplane.github.io&hashtags=ScreamPlane">
+<img src="">Tweet!</a>
+                        <!-- <div class="tweet">Tweet!</div> -->
                     </div>
                     <div class="banner-btn-sizer">
                         <div class="banner-button btn-play-again">Play Again!</div>
@@ -104,6 +110,7 @@
 </div>
 
 <script src="granim.min.js"></script>
+<script src="html2canvas.min.js"></script>
 <script src="assets/js/svg_contents.js"></script>
 <script src="assets/js/constants.js"></script>
 <script src="assets/js/microphone.js"></script>

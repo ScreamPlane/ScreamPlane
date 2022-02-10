@@ -20,7 +20,8 @@ body {
     height: 100%;
     width: 100%;
 
-    &.playing, &.banner-hide {
+    &.playing,
+    &.banner-hide {
         .banner {
             transform: translateX(100%);
         }
@@ -31,7 +32,8 @@ body {
         // }
     }
 
-    &.config, &.hide-top-title {
+    &.config,
+    &.hide-top-title {
         .banner-main-title {
             display: none;
         }
@@ -46,7 +48,10 @@ body {
     }
 
     &.gameover {
-        .banner-start, .banner-config-mic, .banner-allow-mic {
+
+        .banner-start,
+        .banner-config-mic,
+        .banner-allow-mic {
             display: none !important;
         }
 
@@ -66,6 +71,7 @@ body {
         .banner-text-lower {
             flex-grow: 0 !important;
         }
+
         // .banner-start {
         //     display: none !important;
         //     opacity: 0;
@@ -142,7 +148,7 @@ body {
 
 
 
-            > div {
+            >div {
                 // display: flex;
                 align-items: center;
                 justify-content: center;
@@ -155,6 +161,7 @@ body {
                 display: none;
                 opacity: 0;
             }
+
             // height: 100%;
 
             .banner-text-upper {
@@ -186,6 +193,7 @@ body {
                     opacity: 0;
                     display: none;
                 }
+
                 // background: red;
             }
 
@@ -237,7 +245,10 @@ body {
                 z-index: 40;
             }
 
-            .banner-start, .banner-gameover, .banner-allow-mic, .banner-config-mic {
+            .banner-start,
+            .banner-gameover,
+            .banner-allow-mic,
+            .banner-config-mic {
 
 
 
@@ -267,12 +278,12 @@ body {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    
+
                     // font-size: 4rem;
                     font-size: 8.44vh;
                     color: white;
                     // margin-top: 3rem;
-                    
+
                     transition: .2s;
                     cursor: pointer;
                     user-select: none;
@@ -282,7 +293,8 @@ body {
                         margin-bottom: 4.22vh;
                     }
 
-                    &.btn-grant, &.btn-start-recording {
+                    &.btn-grant,
+                    &.btn-start-recording {
                         img {
                             // height: 4rem;
                             height: 8.44vh;
@@ -292,8 +304,9 @@ body {
                             margin-top: -2.11vh;
                         }
                     }
-                    
-                    &.btn-config, &.btn-config-gameover {
+
+                    &.btn-config,
+                    &.btn-config-gameover {
                         background: rgb(161, 161, 161);
                         // box-shadow: -6px 6px rgb(226, 226, 226);
                         box-shadow: -0.41vw 0.8vh rgb(226, 226, 226);
@@ -310,6 +323,7 @@ body {
                             // margin-top: -1rem;
                             margin-top: -2.11vh;
                         }
+
                         // font-size: 3;
 
                         &:hover {
@@ -320,7 +334,10 @@ body {
                         }
                     }
 
-                    &.btn-play, &.btn-play-again, &.btn-grant, &.btn-start-recording {
+                    &.btn-play,
+                    &.btn-play-again,
+                    &.btn-grant,
+                    &.btn-start-recording {
                         background: rgb(0, 140, 255);
                         box-shadow: -0.41vw 0.8vh rgb(160, 212, 255);
 
@@ -846,4 +863,32 @@ body {
             }
         }
     }
+}
+
+.tweet {
+    background: rgb(104, 232, 255);
+
+    width: 8vw;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: .7vh;
+    font-size: 2.2vw;
+    user-select: none;
+    cursor: pointer;
+    // border-radius: ;
+    position: absolute;
+    top: 14vh;
+    right: -10vh;
+    text-decoration: none;
+    color: black;
+
+    img {
+        display: none;
+    }
+}
+
+#canvas {
+    visibility: hidden;
 }

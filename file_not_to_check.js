@@ -168,7 +168,7 @@ function checkMicrophone(fraction) {
         // night_plane_light.style.top = (finalCalcPlane + Paddings.light_from_plane_top) + 'px';
         night_plane_light.style.top = "calc(" + plane.getBoundingClientRect().top + "px" + " + " + ((final * fraction) / 100 + Paddings.light_from_plane_top) * Constants.vhpx_factor + "vh)";
         // night_plane_light.style.top = (finalCalcPlane + Paddings.light_from_plane_top * Constants.vhpx_factor) + 'vh';
-    } 
+    }
     // console.log(s);
     // console.log(s);
     // }, 10);
@@ -218,8 +218,8 @@ function playAgain() {
     bird_movement = -50;
 
     main_frame.classList.add('banner-hide');
-    
-    setTimeout(function() {
+
+    setTimeout(function () {
         main_frame.classList.remove('banner-hide');
         main_frame.classList.replace('gameover', 'playing');
         night_plane_light.style.display = 'initial';
@@ -228,6 +228,7 @@ function playAgain() {
 }
 
 var dead_timeout1, dead_timeout2;
+
 function showGameover() {
     // banner_allow_mic.animate([
     //     {opacity: 1}, {opacity: 0}
@@ -258,7 +259,10 @@ function showGameover() {
         banner_current_score.innerHTML = score;
         banner_high_score.innerHTML = score;
     }
-    
+
+    document.querySelector('.tweet img').src = dirty_draw(high_score);
+    document.querySelector('.tweet').setAttribute("href", "https://twitter.com/intent/tweet?url=screamplane.github.io&text=Just did a new high score at ScreamPlane! " + String(high_score) + "%0aPlay screamplane.github.io&hashtags=ScreamPlane");
+
     plane.classList.add('include-move-transition');
     main_frame.classList.replace('playing', 'gameover');
 
@@ -267,7 +271,7 @@ function showGameover() {
 
     let explode = document.createElement("img");
     explode.setAttribute("class", "explosion");
-    explode.style.top = plane.getBoundingClientRect().top + Paddings.explostion_from_plane_top  + 'px';
+    explode.style.top = plane.getBoundingClientRect().top + Paddings.explostion_from_plane_top + 'px';
     explode.style.left = plane.getBoundingClientRect().left + Paddings.explostion_from_plane_left + 'px';
     explode.setAttribute("src", AssetsURL.explosion);
     top_section.appendChild(explode);
@@ -276,8 +280,13 @@ function showGameover() {
 
     plane.classList.add('plane-dead-1');
 
-    dead_timeout1 = setTimeout(() => {plane.classList.remove('plane-dead-1'); explode.remove();}, 700);
-    dead_timeout2 = setTimeout(() => {plane.classList.add('plane-dead-2'); }, 1000);
+    dead_timeout1 = setTimeout(() => {
+        plane.classList.remove('plane-dead-1');
+        explode.remove();
+    }, 700);
+    dead_timeout2 = setTimeout(() => {
+        plane.classList.add('plane-dead-2');
+    }, 1000);
 
 }
 
@@ -494,15 +503,17 @@ function startGame() {
         plane.classList.remove('include-move-transition');
         clearInterval(initialInterval);
 
-        var tempBottom = setInterval(function() {
+        var tempBottom = setInterval(function () {
             if (plane.getBoundingClientRect().bottom >= window.innerHeight) {
                 gameOver = true;
             }
         }, 10);
 
-        setTimeout(function() {clearInterval(tempBottom)}, 10000);
+        setTimeout(function () {
+            clearInterval(tempBottom)
+        }, 10000);
 
-        scoreCounterInterval = setInterval(function() {
+        scoreCounterInterval = setInterval(function () {
             score += 10;
             setScore();
         }, 50);
@@ -851,25 +862,35 @@ function config() {
     // }
 
     // setTimeout(function() {
-        // btn_record.setAttribute("data-origin", "gameover");
-        banner_gameover.style.display = "none";
-        banner_start.style.display = "none";
-        banner_gameover.style.display = 'none';
-        banner_config.animate([
-            {opacity: 1}, {opacity: 0}
-        ], {duration: 200, fill: "forwards"});
-        // banner_hider.style.display = "initial";
-        // banner_hider.animate([
-        //     {opacity: 0}, {opacity: 1}
-        // ], {duration: 200, fill: "forwards"});
-        banner_config.style.display = 'initial';
-        banner_config.animate([
-            {opacity: 0}, {opacity: 1}
-        ], {duration: 200, fill: "forwards"});
+    // btn_record.setAttribute("data-origin", "gameover");
+    banner_gameover.style.display = "none";
+    banner_start.style.display = "none";
+    banner_gameover.style.display = 'none';
+    banner_config.animate([{
+        opacity: 1
+    }, {
+        opacity: 0
+    }], {
+        duration: 200,
+        fill: "forwards"
+    });
+    // banner_hider.style.display = "initial";
+    // banner_hider.animate([
+    //     {opacity: 0}, {opacity: 1}
+    // ], {duration: 200, fill: "forwards"});
+    banner_config.style.display = 'initial';
+    banner_config.animate([{
+        opacity: 0
+    }, {
+        opacity: 1
+    }], {
+        duration: 200,
+        fill: "forwards"
+    });
     // }, 2000);
 }
 
-btn_config.onclick = function() {
+btn_config.onclick = function () {
     btn_record.setAttribute("data-origin", "start");
 
     config();
@@ -877,7 +898,7 @@ btn_config.onclick = function() {
 
 }
 
-btn_config_gameover.onclick = function() {
+btn_config_gameover.onclick = function () {
     btn_record.setAttribute("data-origin", "gameover");
 
 
@@ -888,11 +909,11 @@ var recCount = 0;
 var recSum = 0;
 var banner_counter_number = 10;
 var counter_button_lock = false;
-btn_record.onclick = function() {
-    
+btn_record.onclick = function () {
+
     if (!counter_button_lock) {
         counter_button_lock = true;
-        var cInterval = setInterval(function() {
+        var cInterval = setInterval(function () {
             var s = Mic.getRMS(Mic.spectrum);
             recCount++;
             recSum += s;
@@ -914,25 +935,40 @@ btn_record.onclick = function() {
                 recSum = 0;
                 banner_counter_number = 10;
 
-                setTimeout(function() {
+                setTimeout(function () {
                     banner_start_subtitle.innerHTML = "You're all set! now click play and go! boooom";
-                    banner_config.animate([
-                        {opacity: 1}, {opacity: 0}
-                    ], {duration: 200, fill: "forwards"});
+                    banner_config.animate([{
+                        opacity: 1
+                    }, {
+                        opacity: 0
+                    }], {
+                        duration: 200,
+                        fill: "forwards"
+                    });
                     banner_config.style.display = 'none';
 
                     if (btn_record.getAttribute("data-origin") === "start") {
                         banner_start.style.display = 'initial';
-                        banner_start.animate([
-                            {opacity: 0}, {opacity: 1}
-                        ], {duration: 200, fill: "forwards"});
+                        banner_start.animate([{
+                            opacity: 0
+                        }, {
+                            opacity: 1
+                        }], {
+                            duration: 200,
+                            fill: "forwards"
+                        });
 
                         main_frame.classList.replace('config', 'start');
-                    } else {  // gameover
+                    } else { // gameover
                         banner_gameover.style.display = 'initial';
-                        banner_gameover.animate([
-                            {opacity: 0}, {opacity: 1}
-                        ], {duration: 200, fill: "forwards"});
+                        banner_gameover.animate([{
+                            opacity: 0
+                        }, {
+                            opacity: 1
+                        }], {
+                            duration: 200,
+                            fill: "forwards"
+                        });
 
                         main_frame.classList.replace('config', 'gameover');
                     }
@@ -948,7 +984,7 @@ btn_record.onclick = function() {
     }
 }
 
-btn_allow_mic.onclick = function() {
+btn_allow_mic.onclick = function () {
     Mic = new Microphone();
 
     navigator.mediaDevices.getUserMedia({
@@ -964,26 +1000,46 @@ btn_allow_mic.onclick = function() {
         // mic_low = 15;
 
         if (mic_low) {
-            banner_allow_mic.animate([
-                {opacity: 1}, {opacity: 0}
-            ], {duration: 200, fill: "forwards"});
+            banner_allow_mic.animate([{
+                opacity: 1
+            }, {
+                opacity: 0
+            }], {
+                duration: 200,
+                fill: "forwards"
+            });
             banner_allow_mic.style.display = 'none';
             banner_start.style.display = 'initial';
-            banner_start.animate([
-                {opacity: 0}, {opacity: 1}
-            ], {duration: 200, fill: "forwards"});
+            banner_start.animate([{
+                opacity: 0
+            }, {
+                opacity: 1
+            }], {
+                duration: 200,
+                fill: "forwards"
+            });
         } else {
-            banner_allow_mic.animate([
-                {opacity: 1}, {opacity: 0}
-            ], {duration: 200, fill: "forwards"});
+            banner_allow_mic.animate([{
+                opacity: 1
+            }, {
+                opacity: 0
+            }], {
+                duration: 200,
+                fill: "forwards"
+            });
             banner_allow_mic.style.display = 'none';
 
             btn_record.setAttribute("data-origin", "start");
 
             banner_config.style.display = 'initial';
-            banner_config.animate([
-                {opacity: 0}, {opacity: 1}
-            ], {duration: 200, fill: "forwards"});
+            banner_config.animate([{
+                opacity: 0
+            }, {
+                opacity: 1
+            }], {
+                duration: 200,
+                fill: "forwards"
+            });
         }
 
         // window.localAudio.srcObject = stream; // B
@@ -1011,3 +1067,102 @@ if (hs) {
 var image = new Image();
 image.src = 'assets/images/explosion.gif';
 // switchNightDay();
+
+// document.body.onclick = function() {
+
+// alert('f')
+// // html2canvas(document.querySelector("#capture")).then(canvas => {
+// //     document.body.appendChild(canvas)
+// // });
+// html2canvas(document.body).then(canvas => {
+//     document.body.appendChild(canvas)
+// });
+
+// }
+
+
+
+
+
+
+
+function dirty_draw(score) {
+    const canvas = document.getElementById('canvas');
+
+    var myFont = new FontFace('myFont', 'url(assets/fonts/Minecraft.ttf)');
+
+    myFont.load().then(function (font) {
+
+        // with canvas, if this is ommited won't work
+        document.fonts.add(font);
+
+        canvas.width = 450;
+        canvas.height = 250;
+        const ctx = canvas.getContext('2d');
+        const x = canvas.width / 2;
+
+        var my_gradient = ctx.createLinearGradient(0, 0, 0, 170);
+        my_gradient.addColorStop(0, "rgba(187, 254, 255)");
+        my_gradient.addColorStop(1, "#ffffff");
+        ctx.fillStyle = my_gradient;
+        ctx.fillRect(0, 0, 250, 300);
+
+        ctx.fillStyle = 'black';
+
+        ctx.textAlign = 'left';
+        /* ctx.fillText('ScreamPlane', 25, 30); */
+        ctx.font = 'bold 30px minecraft';
+
+        ctx.fillText('ScreamPlane!', 25, 47);
+
+
+        ctx.font = 'normal 20px minecraft';
+
+        /* ctx.fillStyle = 'blue'; */
+
+        ctx.fillText('My new high record:', 25, 80);
+        ctx.fillStyle = 'blue';
+        ctx.fillText(String(score), 230, 80);
+        ctx.fillStyle = 'black';
+
+
+
+
+
+
+
+
+
+        var t = 400
+        const image2 = new Image(t, 150 / 320 * t); // Using optional size for image
+
+        // Load an image of intrinsic size 300x227 in CSS pixels
+        image2.src = 'assets/images/plane3_frames/frame_0.png';
+        image2.onload = function () {
+
+            ctx.drawImage(image2, x - image2.width / 2, 120, image2.width, image2.height);
+        }
+    });
+
+
+    return canvas.toDataURL("image/png");
+}
+
+
+// document.querySelector('.tweet').onclick = function() {
+//           // Opens a pop-up with twitter sharing dialog
+//           var shareURL = "http://twitter.com/share?"; //url base
+//           //params
+//           var params = {
+//             url: "http://screamplane.github.io", 
+//             text: "Just did a new high score at ScreamPlane!",
+//             hashtags: "screamplane"
+//           }
+
+//           https://twitter.com/intent/tweet?url=screamplane.github.io&text=Just did a new high score at ScreamPlane!&hashtags=ScreamPlane
+//           for(var prop in params) shareURL += '&' + prop + '=' + encodeURIComponent(params[prop]);
+//           window.open(shareURL, '', 'left=0,top=0,width=550,height=450,personalbar=0,toolbar=0,scrollbars=0,resizable=0');
+//     // document.querySelector('.tweet img').src = dirty_draw(1000);
+// }
+
+// document.body.onclick = dirty_draw;
