@@ -1,2 +1,2 @@
 # ScreamPlane
-A FUNNY-P Game!
+Sorry for the spaghetti code! written in a hurry ...
