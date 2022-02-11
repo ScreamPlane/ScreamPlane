@@ -264,10 +264,10 @@ function showGameover() {
     // document.querySelector('.tweet img').src = dirty_draw(high_score, );
     if (did_high) {
         document.querySelector('.tweet').setAttribute("href", "https://twitter.com/intent/tweet?url=screamplane.github.io&text=Just did a new high score at ScreamPlane! " + String(high_score) + "%0aPlay&hashtags=ScreamPlane");
-        document.querySelector('.tweet img').src = dirty_draw(high_score, 1);
+        // document.querySelector('.tweet img').src = dirty_draw(high_score, 1);
     } else {
 	document.querySelector('.tweet').setAttribute("href", "https://twitter.com/intent/tweet?url=screamplane.github.io&text=My new score at ScreamPlane! " + String(high_score) + "%0aPlay screamplane.github.io&hashtags=ScreamPlane");
-	document.querySelector('.tweet img').src = dirty_draw(high_score, 0);
+	// document.querySelector('.tweet img').src = dirty_draw(high_score, 0);
     }
 
     plane.classList.add('include-move-transition');
@@ -1093,50 +1093,48 @@ image.src = 'assets/images/explosion.gif';
 
 
 
-function dirty_draw(score, did_high_score) {
-    const canvas = document.getElementById('canvas');
+// function dirty_draw(score, did_high_score) {
+//     const canvas = document.getElementById('canvas');
 
-    var myFont = new FontFace('myFont', 'url(assets/fonts/Minecraft.ttf)');
+//     var myFont = new FontFace('myFont', 'url(assets/fonts/Minecraft.ttf)');
 
-    myFont.load().then(function (font) {
+//     myFont.load().then(function (font) {
 
-        // with canvas, if this is ommited won't work
-        document.fonts.add(font);
+//         // with canvas, if this is ommited won't work
+//         document.fonts.add(font);
 
-        canvas.width = 450;
-        canvas.height = 250;
-        const ctx = canvas.getContext('2d');
-        const x = canvas.width / 2;
+//         canvas.width = 450;
+//         canvas.height = 250;
+//         const ctx = canvas.getContext('2d');
+//         const x = canvas.width / 2;
 
-        var my_gradient = ctx.createLinearGradient(0, 0, 0, 170);
-        my_gradient.addColorStop(0, "rgba(187, 254, 255)");
-        my_gradient.addColorStop(1, "#ffffff");
-        ctx.fillStyle = my_gradient;
-        ctx.fillRect(0, 0, 250, 300);
+//         var my_gradient = ctx.createLinearGradient(0, 0, 0, 170);
+//         my_gradient.addColorStop(0, "rgba(187, 254, 255)");
+//         my_gradient.addColorStop(1, "#ffffff");
+//         ctx.fillStyle = my_gradient;
+//         ctx.fillRect(0, 0, 250, 300);
 
-        ctx.fillStyle = 'black';
+//         ctx.fillStyle = 'black';
 
-        ctx.textAlign = 'left';
-        /* ctx.fillText('ScreamPlane', 25, 30); */
-        ctx.font = 'bold 30px minecraft';
+//         ctx.textAlign = 'left';
+//         /* ctx.fillText('ScreamPlane', 25, 30); */
+//         ctx.font = 'bold 30px minecraft';
 
-        ctx.fillText('ScreamPlane!', 25, 47);
-
-
-        ctx.font = 'normal 20px minecraft';
-
-        /* ctx.fillStyle = 'blue'; */
-
-        if (did_high_score) {
-	        ctx.fillText('My new high record:', 25, 80);
-	} else {
-		ctx.fillText('My new score:', 25, 80);
-	}
-        ctx.fillStyle = 'blue';
-        ctx.fillText(String(score), 230, 80);
-        ctx.fillStyle = 'black';
+//         ctx.fillText('ScreamPlane!', 25, 47);
 
 
+//         ctx.font = 'normal 20px minecraft';
+
+//         /* ctx.fillStyle = 'blue'; */
+
+//         if (did_high_score) {
+// 	        ctx.fillText('My new high record:', 25, 80);
+// 	} else {
+// 		ctx.fillText('My new score:', 25, 80);
+// 	}
+//         ctx.fillStyle = 'blue';
+//         ctx.fillText(String(score), 230, 80);
+//         ctx.fillStyle = 'black';
 
 
 
@@ -1144,20 +1142,22 @@ function dirty_draw(score, did_high_score) {
 
 
 
-        var t = 400
-        const image2 = new Image(t, 150 / 320 * t); // Using optional size for image
-
-        // Load an image of intrinsic size 300x227 in CSS pixels
-        image2.src = 'assets/images/plane3_frames/frame_0.png';
-        image2.onload = function () {
-
-            ctx.drawImage(image2, x - image2.width / 2, 120, image2.width, image2.height);
-        }
-    });
 
 
-    return canvas.toDataURL("image/png");
-}
+//         var t = 400
+//         const image2 = new Image(t, 150 / 320 * t); // Using optional size for image
+
+//         // Load an image of intrinsic size 300x227 in CSS pixels
+//         image2.src = 'assets/images/plane3_frames/frame_0.png';
+//         image2.onload = function () {
+
+//             ctx.drawImage(image2, x - image2.width / 2, 120, image2.width, image2.height);
+//         }
+//     });
+
+
+//     return canvas.toDataURL("image/png");
+// }
 
 
 // document.querySelector('.tweet').onclick = function() {
