@@ -261,11 +261,13 @@ function showGameover() {
         banner_high_score.innerHTML = score;
     }
 
-    document.querySelector('.tweet img').src = dirty_draw(high_score);
+    // document.querySelector('.tweet img').src = dirty_draw(high_score, );
     if (did_high) {
-        document.querySelector('.tweet').setAttribute("href", "https://twitter.com/intent/tweet?url=screamplane.github.io&text=Just did a new high score at ScreamPlane! " + String(high_score) + "%0aPlay screamplane.github.io&hashtags=ScreamPlane");
+        document.querySelector('.tweet').setAttribute("href", "https://twitter.com/intent/tweet?url=screamplane.github.io&text=Just did a new high score at ScreamPlane! " + String(high_score) + "%0aPlay&hashtags=ScreamPlane");
+        document.querySelector('.tweet img').src = dirty_draw(high_score, 1);
     } else {
 	document.querySelector('.tweet').setAttribute("href", "https://twitter.com/intent/tweet?url=screamplane.github.io&text=My new score at ScreamPlane! " + String(high_score) + "%0aPlay screamplane.github.io&hashtags=ScreamPlane");
+	document.querySelector('.tweet img').src = dirty_draw(high_score, 0);
     }
 
     plane.classList.add('include-move-transition');
@@ -1091,7 +1093,7 @@ image.src = 'assets/images/explosion.gif';
 
 
 
-function dirty_draw(score) {
+function dirty_draw(score, did_high_score) {
     const canvas = document.getElementById('canvas');
 
     var myFont = new FontFace('myFont', 'url(assets/fonts/Minecraft.ttf)');
@@ -1125,7 +1127,11 @@ function dirty_draw(score) {
 
         /* ctx.fillStyle = 'blue'; */
 
-        ctx.fillText('My new high record:', 25, 80);
+        if (did_high_score) {
+	        ctx.fillText('My new high record:', 25, 80);
+	} else {
+		ctx.fillText('My new score:', 25, 80);
+	}
         ctx.fillStyle = 'blue';
         ctx.fillText(String(score), 230, 80);
         ctx.fillStyle = 'black';

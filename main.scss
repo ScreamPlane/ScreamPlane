@@ -868,13 +868,15 @@ body {
 .tweet {
     background: rgb(104, 232, 255);
 
-    width: 8vw;
+    // width: 8vw;
+    width: 15vh;
     height: 5vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding-top: .7vh;
-    font-size: 2.2vw;
+    // font-size: 2.2vw;
+    font-size: 80%;
     user-select: none;
     cursor: pointer;
     // border-radius: ;
